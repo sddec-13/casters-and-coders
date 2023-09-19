@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=9 format=2]
+
+[ext_resource path="res://interface/theme/stylebox_green_pixel.tres" type="StyleBox" id=1]
+[ext_resource path="res://interface/fonts/RobotoMono-Regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://interface/theme/split_handle.png" type="Texture" id=3]
+[ext_resource path="res://interface/theme/stylebox_green_pixel_disabled.tres" type="StyleBox" id=4]
+[ext_resource path="res://interface/theme/stylebox_green_pixel_hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://interface/theme/stylebox_green_pixel_pressed.tres" type="StyleBox" id=6]
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/panel.png-9535982eaded27d3e12fceba743de959.stex"
+
+[sub_resource type="StyleBoxTexture" id=1]
+content_margin_left = 12.0
+content_margin_right = 12.0
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+texture = SubResource( 2 )
+region_rect = Rect2( 0, 0, 64, 64 )
+margin_left = 8.0
+margin_right = 8.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[resource]
+default_font = ExtResource( 2 )
+Button/styles/disabled = ExtResource( 4 )
+Button/styles/hover = ExtResource( 5 )
+Button/styles/normal = ExtResource( 1 )
+Button/styles/pressed = ExtResource( 6 )
+HSplitContainer/constants/autohide = 0
+HSplitContainer/constants/separation = 16
+HSplitContainer/icons/grabber = ExtResource( 3 )
+PanelContainer/styles/panel = SubResource( 1 )
+TabContainer/styles/panel = ExtResource( 1 )
+TabContainer/styles/tab_bg = ExtResource( 1 )
+TabContainer/styles/tab_disabled = ExtResource( 4 )
+TabContainer/styles/tab_fg = ExtResource( 5 )
+TextEdit/styles/normal = ExtResource( 1 )
