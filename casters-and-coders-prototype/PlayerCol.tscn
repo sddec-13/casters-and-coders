@@ -78,10 +78,10 @@ collision/safe_margin = 0.8
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 25, 20 )
+position = Vector2( 0, -0.666667 )
 frames = SubResource( 7 )
 animation = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 26, 20.6667 )
+position = Vector2( 0, 3.43323e-05 )
 shape = SubResource( 8 )
