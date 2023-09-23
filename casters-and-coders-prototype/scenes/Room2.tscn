@@ -310,9 +310,9 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[node name="StartRoom" type="Node"]
+[node name="Room2" type="Node"]
 script = ExtResource( 5 )
-room_name = "Main"
+room_name = "Room2"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 1, 2 )
@@ -323,7 +323,7 @@ cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 cell_tile_origin = 1
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 9, 0, 6, 7, 0, 7, 7, 0, 8, 7, 0, 9, 7, 0, 10, 8, 0, 65536, 1, 0, 65537, 5, 0, 65538, 9, 0, 65539, 9, 0, 65540, 9, 0, 65541, 9, 0, 65542, 9, 0, 65543, 9, 0, 65544, 9, 0, 65545, 9, 0, 65546, 6, 0, 131072, 1, 0, 131073, 9, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, 9, 0, 131079, 9, 0, 131080, 9, 0, 131081, 9, 0, 131082, 6, 0, 196608, 1, 0, 196609, 9, 0, 196610, 9, 0, 196611, 9, 0, 196612, 9, 0, 196613, 9, 0, 196614, 9, 0, 196615, 9, 0, 196616, 9, 0, 196617, 9, 0, 196618, -1073741819, 0, 262144, 1, 0, 262145, 9, 0, 262146, 9, 0, 262147, 9, 0, 262148, 9, 0, 262149, 9, 0, 262150, 9, 0, 262151, 9, 0, 262152, 9, 0, 262153, 9, 0, 262154, 6, 0, 327680, 1, 0, 327681, 9, 0, 327682, 9, 0, 327683, 9, 0, 327684, 9, 0, 327685, 9, 0, 327686, 9, 0, 327687, 9, 0, 327688, 9, 0, 327689, 9, 0, 327690, 6, 0, 393216, 2, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 4, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 8, 7, 0, 9, 7, 0, 10, 8, 0, 65536, 1, 0, 65537, 5, 0, 65538, 9, 0, 65539, 9, 0, 65540, 9, 0, 65541, 9, 0, 65542, 9, 0, 65543, 9, 0, 65544, 9, 0, 65545, 9, 0, 65546, 6, 0, 131072, 1, 0, 131073, 9, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, 9, 0, 131079, 9, 0, 131080, 9, 0, 131081, 9, 0, 131082, 6, 0, 196608, -1610612731, 0, 196609, 9, 0, 196610, 9, 0, 196611, 9, 0, 196612, 9, 0, 196613, 9, 0, 196614, 9, 0, 196615, 9, 0, 196616, 9, 0, 196617, 9, 0, 196618, 6, 0, 262144, 1, 0, 262145, 9, 0, 262146, 9, 0, 262147, 9, 0, 262148, 9, 0, 262149, 9, 0, 262150, 9, 0, 262151, 9, 0, 262152, 9, 0, 262153, 9, 0, 262154, 6, 0, 327680, 1, 0, 327681, 9, 0, 327682, 9, 0, 327683, 9, 0, 327684, 9, 0, 327685, 9, 0, 327686, 9, 0, 327687, 9, 0, 327688, 9, 0, 327689, 9, 0, 327690, 6, 0, 393216, 2, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 4, 0 )
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource( 1 )]
 position = Vector2( 512, 303 )
@@ -331,17 +331,15 @@ position = Vector2( 512, 303 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 0, 2 )
 
-[node name="DoorRoom1" type="StaticBody2D" parent="."]
-position = Vector2( -64, -509 )
+[node name="DoorMain" type="StaticBody2D" parent="."]
+position = Vector2( 565, -254 )
+rotation = 1.5708
 scale = Vector2( 1.04599, 1.01981 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
-door_to = "Room1"
+door_to = "Main"
 object_type = "door"
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="DoorRoom1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="DoorMain"]
 position = Vector2( 566.929, 526.903 )
 scale = Vector2( 1.25, 1.38864 )
 frames = SubResource( 13 )
@@ -349,47 +347,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRoom1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorMain"]
 visible = false
 position = Vector2( 566.929, 524.614 )
 shape = SubResource( 14 )
 
-[node name="Actionable" type="Area2D" parent="DoorRoom1"]
+[node name="Actionable" type="Area2D" parent="DoorMain"]
 collision_layer = 16
 collision_mask = 16
 script = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRoom1/Actionable"]
-position = Vector2( 566.929, 526.52 )
-shape = SubResource( 15 )
-
-[node name="DoorRoom2" type="StaticBody2D" parent="."]
-position = Vector2( 463, 932 )
-rotation = -1.5708
-scale = Vector2( 1.04599, 1.01981 )
-script = ExtResource( 2 )
-door_to = "Room2"
-object_type = "door"
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="DoorRoom2"]
-position = Vector2( 566.929, 526.903 )
-scale = Vector2( 1.25, 1.38864 )
-frames = SubResource( 13 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRoom2"]
-visible = false
-position = Vector2( 566.929, 524.614 )
-shape = SubResource( 14 )
-
-[node name="Actionable" type="Area2D" parent="DoorRoom2"]
-collision_layer = 16
-collision_mask = 16
-script = ExtResource( 6 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRoom2/Actionable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorMain/Actionable"]
 position = Vector2( 566.929, 526.52 )
 shape = SubResource( 15 )
 
@@ -410,21 +378,10 @@ color = Color( 0, 0, 0, 0 )
 anims/fade_in = SubResource( 16 )
 anims/fade_out = SubResource( 17 )
 
-[node name="SpawnPosRoom1" type="Position2D" parent="."]
-position = Vector2( 530, 73 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="SpawnPosRoom2" type="Position2D" parent="."]
-position = Vector2( 983, 340 )
-
 [node name="SpawnPos" type="Position2D" parent="."]
-position = Vector2( 517, 302 )
+position = Vector2( 67, 343 )
 
 [connection signal="change_room" from="Player" to="." method="_on_Player_change_room"]
-[connection signal="body_entered" from="DoorRoom1/Actionable" to="DoorRoom1/Actionable" method="_on_Player_entered"]
-[connection signal="body_exited" from="DoorRoom1/Actionable" to="DoorRoom1/Actionable" method="_on_Player_exited"]
-[connection signal="body_entered" from="DoorRoom2/Actionable" to="DoorRoom2/Actionable" method="_on_Player_entered"]
-[connection signal="body_exited" from="DoorRoom2/Actionable" to="DoorRoom2/Actionable" method="_on_Player_exited"]
+[connection signal="body_entered" from="DoorMain/Actionable" to="DoorMain/Actionable" method="_on_Player_entered"]
+[connection signal="body_exited" from="DoorMain/Actionable" to="DoorMain/Actionable" method="_on_Player_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -6,7 +6,7 @@ signal change_room
 
 var speed = 250
 var velocity = Vector2()
-var next_door = false # track the state whether player is next to door or not
+var nearby_object : StaticBody2D = null
 
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed.
@@ -20,10 +20,9 @@ func get_input():
 		velocity.y += 1
 	elif Input.is_action_pressed('move_up'):
 		velocity.y -= 1
-	elif Input.is_action_just_pressed("interact"):
-		if next_door:
-			print("Transitioning room...")
-			emit_signal("change_room")
+	elif Input.is_action_pressed("interact"):
+		if nearby_object:
+			interact_object(nearby_object)
 	
 	velocity = velocity.normalized() * speed
 		
@@ -36,18 +35,10 @@ func _physics_process(delta):
 		$AnimatedSprite.flip_h = velocity.x < 0
 		
 	$AnimatedSprite.play()
-	var move_info = move_and_collide(velocity * delta)
+	var collision : KinematicCollision2D  = move_and_collide(velocity * delta)
 
-func transition_scene(room):
-	print(room)
-
-func _on_Door_body_entered(body):
-	if body.is_in_group("player"):
-		print("Player ENTERED door!")
-		next_door = true
-
-
-func _on_Door_body_exited(body):
-	if body.is_in_group("player"):
-		print("Player EXITED door!")
-		next_door = false
+func interact_object(object : StaticBody2D):
+	match object.object_type:
+		"door": # case door
+			Global.from_room = get_parent().room_name
+			emit_signal("change_room", object.door_to)

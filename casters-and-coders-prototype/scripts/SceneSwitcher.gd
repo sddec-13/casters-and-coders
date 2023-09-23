@@ -13,17 +13,7 @@ func _ready():
 	# connect the `room_changed` signal to the `handle_change_room` function defined below
 	current_room.connect("room_changed", self, "handle_change_room")
 
-func handle_change_room(current_room_name: String):
-	var next_room_name: String
-	
-	match current_room_name:
-		"start": # current room start, move to room 1
-			next_room_name = "Room1"
-		"room1": # current room1, move back to starting room
-			next_room_name = "Main"
-		_: # default, do nothing
-			return
-	
+func handle_change_room(next_room_name: String):
 	next_room = load("res://scenes/" + next_room_name + ".tscn").instance()
 	for child in next_room.get_children(): # hide all children till animation completes
 		child.visible = false
