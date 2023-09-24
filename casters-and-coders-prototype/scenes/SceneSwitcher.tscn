@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/Main.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Rooms/Main.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/SceneSwitcher.gd" type="Script" id=2]
 [ext_resource path="res://interface/code_editor.tscn" type="PackedScene" id=3]
 

@@ -1,15 +1,19 @@
-# This is the player script which contains game logic relating to the player character
+# Script for moving platform
 
 extends KinematicBody2D
 
 signal change_room
 signal interact_object
 
-var speed = 250
+var speed = 300
 var velocity = Vector2()
 var nearby_object : StaticBody2D = null
 var collision_info : KinematicCollision2D = null
 
+func _ready():
+	get_parent().get_node("DialogLayer/PopupDialog/Label").text = "You have entered a bottomless pit room!"
+	get_parent().get_node("DialogLayer/PopupDialog/").show_popup(3)
+	
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed.
 	velocity = Vector2()
@@ -40,6 +44,7 @@ func _physics_process(delta):
 	collision_info = move_and_collide(velocity * delta)
 
 func interact_object(object : StaticBody2D):
+	print("INTERACTING")
 	match object.object_type:
 		"door": # case door
 			Global.from_room = get_parent().room_name
