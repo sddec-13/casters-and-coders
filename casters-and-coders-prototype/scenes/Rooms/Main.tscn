@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" type="Texture" id=1]
 [ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://scripts/Room.gd" type="Script" id=7]
 [ext_resource path="res://actionable/actionable.gd" type="Script" id=8]
 [ext_resource path="res://objects/Door.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/Rooms/Saver.gd" type="Script" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 8.99305, 0, 16.1639, 0, 16.1639, 32, 8.79924, 32 )
@@ -410,10 +409,9 @@ layer = 10
 [node name="Overlay" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.019
 anchor_bottom = 1.122
-margin_left = 5.0
-margin_top = 2.0
-margin_right = 4.23999
-margin_bottom = -0.200073
+margin_left = -3.0
+margin_right = -3.76001
+margin_bottom = -2.20007
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 
@@ -428,10 +426,7 @@ __meta__ = {
 }
 
 [node name="SpawnPosRoom2" type="Position2D" parent="."]
-position = Vector2( 983, 340 )
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( 77, 336 )
 
 [node name="SpawnPosRoom3" type="Position2D" parent="."]
 position = Vector2( 527, 545 )
@@ -445,9 +440,6 @@ position = Vector2( 517, 302 )
 object_data = {
 "type": "statue"
 }
-
-[node name="Saver" type="Node" parent="."]
-script = ExtResource( 10 )
 
 [connection signal="change_room" from="Player" to="." method="_on_Player_change_room"]
 [connection signal="interact_object" from="Player" to="." method="_on_Player_interact_object"]

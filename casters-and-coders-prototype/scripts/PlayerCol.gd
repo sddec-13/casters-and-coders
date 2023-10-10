@@ -9,6 +9,7 @@ var speed = 250
 var velocity = Vector2()
 var nearby_object : StaticBody2D = null
 var collision_info : KinematicCollision2D = null
+
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed.
 	velocity = Vector2()
@@ -16,7 +17,7 @@ func get_input():
 	if Input.is_action_pressed('move_right'):
 		velocity.x += 1
 	elif Input.is_action_pressed('save'):
-		save_game()
+		print("1")
 	elif Input.is_action_pressed('move_left'):
 		velocity.x -= 1
 	elif Input.is_action_pressed('move_down'):
