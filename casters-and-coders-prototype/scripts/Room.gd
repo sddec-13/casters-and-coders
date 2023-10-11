@@ -32,3 +32,8 @@ func _on_Player_interact_object(object):
 	$PopupDialog/Label.text = object.objects[item_type]
 	$PopupDialog.show_popup(3)
 	
+	
+	
+	
+	
+	

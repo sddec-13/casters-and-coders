@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scenes/PlayerCol.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Door.gd" type="Script" id=2]
@@ -6,6 +6,34 @@
 [ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Room.gd" type="Script" id=5]
 [ext_resource path="res://actionable/actionable.gd" type="Script" id=6]
+[ext_resource path="res://art_assets/Water+.png" type="Texture" id=7]
+[ext_resource path="res://objects/InteractableItem.tscn" type="PackedScene" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=21]
+0/name = "Dungeon_Tileset_at.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 272, 480, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 20 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 8.99305, 0, 16.1639, 0, 16.1639, 32, 8.79924, 32 )
@@ -261,6 +289,46 @@ points = PoolVector2Array( 0, 0, 31.4308, 0, 31.4308, 15.5825, 0, 15.5825 )
 10/shapes = [  ]
 10/z_index = 0
 
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="TileSet" id=18]
+0/name = "Water+.png 0"
+0/texture = ExtResource( 7 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 160, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "Water+.png 1"
+1/texture = ExtResource( 7 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 144, 0, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 19 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 4 )
@@ -310,9 +378,15 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[node name="tutorialRoom1" type="Node"]
+[node name="tutorialRoom2" type="Node"]
 script = ExtResource( 5 )
 room_name = "Room2"
+
+[node name="Bridge" type="TileMap" parent="."]
+tile_set = SubResource( 21 )
+cell_size = Vector2( 16, 16 )
+show_collision = true
+format = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 1, 2 )
@@ -324,6 +398,13 @@ cell_tile_origin = 1
 show_collision = true
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 8, 7, 0, 9, 7, 0, 10, 8, 0, 65536, 1, 0, 65537, 5, 0, 65538, 9, 0, 65539, 9, 0, 65540, 9, 0, 65541, 9, 0, 65542, 9, 0, 65543, 9, 0, 65544, 9, 0, 65545, 9, 0, 65546, 6, 0, 131072, 1, 0, 131073, 9, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, 9, 0, 131079, 9, 0, 131080, 9, 0, 131081, 9, 0, 131082, 6, 0, 196608, 1, 0, 196609, 9, 0, 196610, 9, 0, 196611, 9, 0, 196612, 9, 0, 196613, 9, 0, 196614, 9, 0, 196615, 9, 0, 196616, 9, 0, 196617, 9, 0, 196618, 6, 0, 262144, 1, 0, 262145, 9, 0, 262146, 9, 0, 262147, 9, 0, 262148, 9, 0, 262149, 9, 0, 262150, 9, 0, 262151, 9, 0, 262152, 9, 0, 262153, 9, 0, 262154, 6, 0, 327680, 1, 0, 327681, 9, 0, 327682, 9, 0, 327683, 9, 0, 327684, 9, 0, 327685, 9, 0, 327686, 9, 0, 327687, 9, 0, 327688, 9, 0, 327689, 9, 0, 327690, 6, 0, 393216, 2, 0, 393217, 3, 0, 393218, 3, 0, 393219, 3, 0, 393220, 3, 0, 393221, 3, 0, 393222, 3, 0, 393223, 3, 0, 393224, 3, 0, 393225, 3, 0, 393226, 4, 0 )
+
+[node name="water" type="TileMap" parent="."]
+tile_set = SubResource( 18 )
+cell_size = Vector2( 16, 16 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 196641, 1, 0, 196642, 1, 0, 196643, 1, 0, 262177, 1, 0, 262178, 1, 0, 262179, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 393249, 1, 0, 393250, 1, 0, 393251, 1, 0, 458785, 1, 0, 458786, 1, 0, 458787, 1, 0, 524321, 1, 0, 524322, 1, 0, 524323, 1, 0, 589857, 1, 0, 589858, 1, 0, 589859, 1, 0, 655393, 1, 0, 655394, 1, 0, 655395, 1, 0, 720929, 1, 0, 720930, 1, 0, 720931, 1, 0, 786465, 1, 0, 786466, 1, 0, 786467, 1, 0, 852001, 1, 0, 852002, 1, 0, 852003, 1, 0, 917537, 1, 0, 917538, 1, 0, 917539, 1, 0, 983073, 1, 0, 983074, 1, 0, 983075, 1, 0, 1048609, 1, 0, 1048610, 1, 0, 1048611, 1, 0, 1114145, 1, 0, 1114146, 1, 0, 1114147, 1, 0, 1179681, 1, 0, 1179682, 1, 0, 1179683, 1, 0, 1245217, 1, 0, 1245218, 1, 0, 1245219, 1, 0, 1310753, 1, 0, 1310754, 1, 0, 1310755, 1, 0, 1376289, 1, 0, 1376290, 1, 0, 1376291, 1, 0, 1441825, 1, 0, 1441826, 1, 0, 1441827, 1, 0, 1507361, 1, 0, 1507362, 1, 0, 1507363, 1, 0, 1572897, 1, 0, 1572898, 1, 0, 1572899, 1, 0, 1638433, 1, 0, 1638434, 1, 0, 1638435, 1, 0, 1703969, 1, 0, 1703970, 1, 0, 1703971, 1, 0, 1769505, 1, 0, 1769506, 1, 0, 1769507, 1, 0, 1835041, 1, 0, 1835042, 1, 0, 1835043, 1, 0, 1900577, 1, 0, 1900578, 1, 0, 1900579, 1, 0, 1966113, 1, 0, 1966114, 1, 0, 1966115, 1, 0, 2031649, 1, 0, 2031650, 1, 0, 2031651, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2162721, 1, 0, 2162722, 1, 0, 2162723, 1, 0, 2228257, 1, 0, 2228258, 1, 0, 2228259, 1, 0, 2293793, 1, 0, 2293794, 1, 0, 2293795, 1, 0 )
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource( 1 )]
 position = Vector2( 512, 303 )
@@ -380,6 +461,12 @@ anims/fade_out = SubResource( 17 )
 
 [node name="SpawnPos" type="Position2D" parent="."]
 position = Vector2( 81, 342 )
+
+[node name="Statue" parent="." instance=ExtResource( 8 )]
+position = Vector2( -130, -86 )
+object_data = {
+"type": "statue"
+}
 
 [connection signal="change_room" from="Player" to="." method="_on_Player_change_room"]
 [connection signal="body_entered" from="DoorToTutorial3/Actionable" to="DoorToTutorial3/Actionable" method="_on_Player_entered"]
