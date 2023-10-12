@@ -14,6 +14,11 @@ func get_input():
 	# Detect up/down/left/right keystate and only move when pressed.
 	velocity = Vector2()
 
+	if Global.is_event: # currently an event, cant move
+		if Input.is_action_just_pressed("interact"): # when its an event,
+			get_parent().get_node("EventNode").on_Event_Next() # spacebar to move on to next message
+		return # end move
+		
 	if Input.is_action_pressed('move_right'):
 		velocity.x += 1
 	elif Input.is_action_pressed('save'):
@@ -24,7 +29,7 @@ func get_input():
 		velocity.y += 1
 	elif Input.is_action_pressed('move_up'):
 		velocity.y -= 1
-	elif Input.is_action_pressed("interact"):
+	elif Input.is_action_just_pressed("interact"):
 		if nearby_object:
 			interact_object(nearby_object)
 		

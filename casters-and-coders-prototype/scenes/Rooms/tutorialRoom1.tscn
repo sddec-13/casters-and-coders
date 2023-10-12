@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://scenes/PlayerCol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actionable/actionable.gd" type="Script" id=5]
 [ext_resource path="res://scripts/Door.gd" type="Script" id=6]
+[ext_resource path="res://scenes/EventNode.tscn" type="PackedScene" id=7]
+[ext_resource path="res://dialog/PopupDialog.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/Event_TutorialRoom1.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 8.99305, 0, 16.1639, 0, 16.1639, 32, 8.79924, 32 )
@@ -334,7 +337,7 @@ position = Vector2( 1544, -254 )
 rotation = 1.5708
 scale = Vector2( 1.04599, 1.01981 )
 script = ExtResource( 6 )
-door_to = "tutorialRoom2"
+door_to = "TutorialRoom2"
 object_type = "door"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="DoorToTutorial2"]
@@ -378,6 +381,15 @@ anims/fade_out = SubResource( 17 )
 
 [node name="SpawnPos" type="Position2D" parent="."]
 position = Vector2( 512, 319 )
+
+[node name="PopupDialog" parent="." instance=ExtResource( 8 )]
+margin_left = -184.0
+margin_top = -168.0
+margin_right = -184.0
+margin_bottom = -168.0
+
+[node name="EventNode" parent="." instance=ExtResource( 7 )]
+script = ExtResource( 9 )
 
 [connection signal="change_room" from="Player" to="." method="_on_Player_change_room"]
 [connection signal="body_entered" from="DoorToTutorial2/Actionable" to="DoorToTutorial2/Actionable" method="_on_Player_entered"]

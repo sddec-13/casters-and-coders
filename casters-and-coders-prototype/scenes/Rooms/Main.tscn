@@ -425,7 +425,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="SpawnPosRoom2" type="Position2D" parent="."]
+[node name="SpawnPosTutorialRoom3" type="Position2D" parent="."]
 position = Vector2( 77, 336 )
 
 [node name="SpawnPosRoom3" type="Position2D" parent="."]

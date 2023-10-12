@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
-[ext_resource path="res://scenes/Rooms/TutorialRoom2.gd" type="Script" id=1]
+[ext_resource path="res://scripts/TutorialRoom2.gd" type="Script" id=1]
 [ext_resource path="res://art_assets/Water+.png" type="Texture" id=2]
 [ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" type="Texture" id=3]
 [ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" type="Texture" id=4]
@@ -354,8 +354,41 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[node name="tutorialRoom2" type="Node"]
+[sub_resource type="Animation" id=21]
+resource_name = "quick_event_end"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "quick_event_start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="TutorialRoom2" type="Node"]
 script = ExtResource( 1 )
+room_name = "TutorialRoom2"
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 1, 2 )
@@ -373,7 +406,7 @@ tile_set = SubResource( 18 )
 cell_size = Vector2( 16, 16 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 196641, 1, 0, 196642, 1, 0, 196643, 1, 0, 262177, 1, 0, 262178, 1, 0, 262179, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 393249, 1, 0, 393250, 1, 0, 393251, 1, 0, 458785, 1, 0, 458786, 1, 0, 458787, 1, 0, 524321, 1, 0, 524322, 1, 0, 524323, 1, 0, 589857, 1, 0, 589858, 1, 0, 589859, 1, 0, 655393, 1, 0, 655394, 1, 0, 655395, 1, 0, 720929, 1, 0, 720930, 1, 0, 720931, 1, 0, 786465, 1, 0, 786466, 1, 0, 786467, 1, 0, 852001, 1, 0, 852002, 1, 0, 852003, 1, 0, 917537, 1, 0, 917538, 1, 0, 917539, 1, 0, 983073, 1, 0, 983074, 1, 0, 983075, 1, 0, 1048609, 1, 0, 1048610, 1, 0, 1048611, 1, 0, 1376289, 1, 0, 1376290, 1, 0, 1376291, 1, 0, 1441825, 1, 0, 1441826, 1, 0, 1441827, 1, 0, 1507361, 1, 0, 1507362, 1, 0, 1507363, 1, 0, 1572897, 1, 0, 1572898, 1, 0, 1572899, 1, 0, 1638433, 1, 0, 1638434, 1, 0, 1638435, 1, 0, 1703969, 1, 0, 1703970, 1, 0, 1703971, 1, 0, 1769505, 1, 0, 1769506, 1, 0, 1769507, 1, 0, 1835041, 1, 0, 1835042, 1, 0, 1835043, 1, 0, 1900577, 1, 0, 1900578, 1, 0, 1900579, 1, 0, 1966113, 1, 0, 1966114, 1, 0, 1966115, 1, 0, 2031649, 1, 0, 2031650, 1, 0, 2031651, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2162721, 1, 0, 2162722, 1, 0, 2162723, 1, 0, 2228257, 1, 0, 2228258, 1, 0, 2228259, 1, 0, 2293793, 1, 0, 2293794, 1, 0, 2293795, 1, 0 )
+tile_data = PoolIntArray( 196641, 1, 0, 196642, 1, 0, 196643, 1, 0, 196644, 1, 0, 262177, 1, 0, 262178, 1, 0, 262179, 1, 0, 262180, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 327716, 1, 0, 393249, 1, 0, 393250, 1, 0, 393251, 1, 0, 393252, 1, 0, 458785, 1, 0, 458786, 1, 0, 458787, 1, 0, 458788, 1, 0, 524321, 1, 0, 524322, 1, 0, 524323, 1, 0, 524324, 1, 0, 589857, 1, 0, 589858, 1, 0, 589859, 1, 0, 589860, 1, 0, 655393, 1, 0, 655394, 1, 0, 655395, 1, 0, 655396, 1, 0, 720929, 1, 0, 720930, 1, 0, 720931, 1, 0, 720932, 1, 0, 786465, 1, 0, 786466, 1, 0, 786467, 1, 0, 786468, 1, 0, 852001, 1, 0, 852002, 1, 0, 852003, 1, 0, 852004, 1, 0, 917537, 1, 0, 917538, 1, 0, 917539, 1, 0, 917540, 1, 0, 983073, 1, 0, 983074, 1, 0, 983075, 1, 0, 983076, 1, 0, 1048609, 1, 0, 1048610, 1, 0, 1048611, 1, 0, 1048612, 1, 0, 1441825, 1, 0, 1441826, 1, 0, 1441827, 1, 0, 1441828, 1, 0, 1507361, 1, 0, 1507362, 1, 0, 1507363, 1, 0, 1507364, 1, 0, 1572897, 1, 0, 1572898, 1, 0, 1572899, 1, 0, 1572900, 1, 0, 1638433, 1, 0, 1638434, 1, 0, 1638435, 1, 0, 1638436, 1, 0, 1703969, 1, 0, 1703970, 1, 0, 1703971, 1, 0, 1703972, 1, 0, 1769505, 1, 0, 1769506, 1, 0, 1769507, 1, 0, 1769508, 1, 0, 1835041, 1, 0, 1835042, 1, 0, 1835043, 1, 0, 1835044, 1, 0, 1900577, 1, 0, 1900578, 1, 0, 1900579, 1, 0, 1900580, 1, 0, 1966113, 1, 0, 1966114, 1, 0, 1966115, 1, 0, 1966116, 1, 0, 2031649, 1, 0, 2031650, 1, 0, 2031651, 1, 0, 2031652, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2097188, 1, 0, 2162721, 1, 0, 2162722, 1, 0, 2162723, 1, 0, 2162724, 1, 0, 2228257, 1, 0, 2228258, 1, 0, 2228259, 1, 0, 2228260, 1, 0, 2293793, 1, 0, 2293794, 1, 0, 2293795, 1, 0, 2293796, 1, 0 )
 
 [node name="WaterNonObstacle" type="TileMap" parent="."]
 tile_set = SubResource( 18 )
@@ -382,7 +415,7 @@ show_collision = true
 collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 196641, 1, 0, 196642, 1, 0, 196643, 1, 0, 262177, 1, 0, 262178, 1, 0, 262179, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 393249, 1, 0, 393250, 1, 0, 393251, 1, 0, 458785, 1, 0, 458786, 1, 0, 458787, 1, 0, 524321, 1, 0, 524322, 1, 0, 524323, 1, 0, 589857, 1, 0, 589858, 1, 0, 589859, 1, 0, 655393, 1, 0, 655394, 1, 0, 655395, 1, 0, 720929, 1, 0, 720930, 1, 0, 720931, 1, 0, 786465, 1, 0, 786466, 1, 0, 786467, 1, 0, 852001, 1, 0, 852002, 1, 0, 852003, 1, 0, 917537, 1, 0, 917538, 1, 0, 917539, 1, 0, 983073, 1, 0, 983074, 1, 0, 983075, 1, 0, 1048609, 1, 0, 1048610, 1, 0, 1048611, 1, 0, 1114145, 0, 0, 1114146, 0, 0, 1114147, 0, 0, 1179681, 0, 0, 1179682, 0, 0, 1179683, 0, 0, 1245217, 0, 0, 1245218, 0, 0, 1245219, 0, 0, 1310753, 0, 0, 1310754, 0, 0, 1310755, 0, 0, 1376289, 1, 0, 1376290, 1, 0, 1376291, 1, 0, 1441825, 1, 0, 1441826, 1, 0, 1441827, 1, 0, 1507361, 1, 0, 1507362, 1, 0, 1507363, 1, 0, 1572897, 1, 0, 1572898, 1, 0, 1572899, 1, 0, 1638433, 1, 0, 1638434, 1, 0, 1638435, 1, 0, 1703969, 1, 0, 1703970, 1, 0, 1703971, 1, 0, 1769505, 1, 0, 1769506, 1, 0, 1769507, 1, 0, 1835041, 1, 0, 1835042, 1, 0, 1835043, 1, 0, 1900577, 1, 0, 1900578, 1, 0, 1900579, 1, 0, 1966113, 1, 0, 1966114, 1, 0, 1966115, 1, 0, 2031649, 1, 0, 2031650, 1, 0, 2031651, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2162721, 1, 0, 2162722, 1, 0, 2162723, 1, 0, 2228257, 1, 0, 2228258, 1, 0, 2228259, 1, 0, 2293793, 1, 0, 2293794, 1, 0, 2293795, 1, 0 )
+tile_data = PoolIntArray( 196641, 1, 0, 196642, 1, 0, 196643, 1, 0, 262177, 1, 0, 262178, 1, 0, 262179, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 393249, 1, 0, 393250, 1, 0, 393251, 1, 0, 458785, 1, 0, 458786, 1, 0, 458787, 1, 0, 524321, 1, 0, 524322, 1, 0, 524323, 1, 0, 589857, 1, 0, 589858, 1, 0, 589859, 1, 0, 655393, 1, 0, 655394, 1, 0, 655395, 1, 0, 720929, 1, 0, 720930, 1, 0, 720931, 1, 0, 786465, 1, 0, 786466, 1, 0, 786467, 1, 0, 852001, 1, 0, 852002, 1, 0, 852003, 1, 0, 917537, 1, 0, 917538, 1, 0, 917539, 1, 0, 983073, 1, 0, 983074, 1, 0, 983075, 1, 0, 1114145, 0, 0, 1114146, 0, 0, 1114147, 0, 0, 1114148, 0, 0, 1179681, 0, 0, 1179682, 0, 0, 1179683, 0, 0, 1179684, 0, 0, 1245217, 0, 0, 1245218, 0, 0, 1245219, 0, 0, 1245220, 0, 0, 1310753, 0, 0, 1310754, 0, 0, 1310755, 0, 0, 1310756, 0, 0, 1376289, 0, 0, 1376290, 0, 0, 1376291, 0, 0, 1376292, 0, 0, 1441825, 1, 0, 1441826, 1, 0, 1441827, 1, 0, 1507361, 1, 0, 1507362, 1, 0, 1507363, 1, 0, 1572897, 1, 0, 1572898, 1, 0, 1572899, 1, 0, 1638433, 1, 0, 1638434, 1, 0, 1638435, 1, 0, 1703969, 1, 0, 1703970, 1, 0, 1703971, 1, 0, 1769505, 1, 0, 1769506, 1, 0, 1769507, 1, 0, 1835041, 1, 0, 1835042, 1, 0, 1835043, 1, 0, 1900577, 1, 0, 1900578, 1, 0, 1900579, 1, 0, 1966113, 1, 0, 1966114, 1, 0, 1966115, 1, 0, 2031649, 1, 0, 2031650, 1, 0, 2031651, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2162721, 1, 0, 2162722, 1, 0, 2162723, 1, 0, 2228257, 1, 0, 2228258, 1, 0, 2228259, 1, 0, 2293793, 1, 0, 2293794, 1, 0, 2293795, 1, 0 )
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource( 6 )]
 position = Vector2( 244, 320 )
@@ -396,7 +429,7 @@ position = Vector2( 1553, -256 )
 rotation = 1.5708
 scale = Vector2( 1.04599, 1.01981 )
 script = ExtResource( 8 )
-door_to = "tutorialRoom3"
+door_to = "TutorialRoom3"
 object_type = "door"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="DoorToTutorial3"]
@@ -432,11 +465,13 @@ margin_right = -2.76001
 margin_bottom = -2.20007
 rect_pivot_offset = Vector2( -293, 1071 )
 mouse_filter = 2
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fade_in = SubResource( 16 )
 anims/fade_out = SubResource( 17 )
+anims/quick_event_end = SubResource( 21 )
+anims/quick_event_start = SubResource( 20 )
 
 [node name="SpawnPos" type="Position2D" parent="."]
 position = Vector2( 81, 342 )
@@ -449,7 +484,8 @@ object_data = {
 
 [node name="Bridge" parent="." instance=ExtResource( 9 )]
 visible = false
-position = Vector2( -67, -6 )
+position = Vector2( 2, -61 )
+scale = Vector2( 0.9, 1.2 )
 collision_layer = 1
 collision_mask = 1
 
@@ -460,8 +496,9 @@ margin_right = -184.0
 margin_bottom = -168.0
 
 [connection signal="change_room" from="Player" to="." method="_on_Player_change_room"]
-[connection signal="interact_object" from="Player" to="." method="_on_Bridge_Activated"]
 [connection signal="interact_object" from="Player" to="." method="_on_Player_interact_object"]
+[connection signal="interact_object" from="Player" to="." method="_on_Bridge_Activated"]
 [connection signal="body_entered" from="DoorToTutorial3/Actionable" to="DoorToTutorial3/Actionable" method="_on_Player_entered"]
 [connection signal="body_exited" from="DoorToTutorial3/Actionable" to="DoorToTutorial3/Actionable" method="_on_Player_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished2"]
