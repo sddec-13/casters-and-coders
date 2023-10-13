@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/PlayerCol.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Door.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" type="Texture" id=4]
 [ext_resource path="res://scripts/Room.gd" type="Script" id=5]
 [ext_resource path="res://actionable/actionable.gd" type="Script" id=6]
+[ext_resource path="res://scenes/EventNode.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/Event_TutorialRoom2.gd" type="Script" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 8.99305, 0, 16.1639, 0, 16.1639, 32, 8.79924, 32 )
@@ -410,6 +412,9 @@ anims/fade_out = SubResource( 17 )
 
 [node name="SpawnPos" type="Position2D" parent="."]
 position = Vector2( 67, 343 )
+
+[node name="EventNode" parent="." instance=ExtResource( 7 )]
+script = ExtResource( 8 )
 
 [connection signal="change_room" from="Player" to="." method="_on_Player_change_room"]
 [connection signal="body_entered" from="DoorMain/Actionable" to="DoorMain/Actionable" method="_on_Player_entered"]
