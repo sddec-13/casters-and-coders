@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/PlayerCol.tscn" type="PackedScene" id=4]
 [ext_resource path="res://actionable/actionable.gd" type="Script" id=5]
 [ext_resource path="res://scripts/Door.gd" type="Script" id=6]
+[ext_resource path="res://art_assets/fireRelated/fire5.png" type="Texture" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 8.99305, 0, 16.1639, 0, 16.1639, 32, 8.79924, 32 )
@@ -310,6 +311,32 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
+[sub_resource type="Shader" id=18]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+
+void fragment(){
+	vec4 base = texture(TEXTURE, UV);
+	vec4 n = texture(noise, vec2(UV.x, UV.y +TIME));
+	
+	base.r += -.4f -distance(vec2(0.5,UV.y),UV);
+	base.r += (base.r * 0.3)+ (n.r * 0.4);
+	
+	
+	COLOR = vec4(float(base.r > 0.4),base.r, base.r, float(base.r > 0.4));
+}"
+
+[sub_resource type="OpenSimplexNoise" id=20]
+
+[sub_resource type="NoiseTexture" id=21]
+seamless = true
+noise = SubResource( 20 )
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = SubResource( 18 )
+shader_param/noise = SubResource( 21 )
+
 [node name="TutorialRoom3" type="Node"]
 script = ExtResource( 1 )
 room_name = "TutorialRoom3"
@@ -380,6 +407,14 @@ anims/fade_out = SubResource( 17 )
 
 [node name="SpawnPos" type="Position2D" parent="."]
 position = Vector2( 81, 342 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Node2D"]
+material = SubResource( 19 )
+position = Vector2( 79, 74.5 )
+scale = Vector2( 0.101562, 0.0996094 )
+texture = ExtResource( 7 )
 
 [connection signal="change_room" from="Player" to="." method="_on_Player_change_room"]
 [connection signal="body_entered" from="DoorMain/Actionable" to="DoorMain/Actionable" method="_on_Player_entered"]
