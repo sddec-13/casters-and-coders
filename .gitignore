@@ -23,3 +23,7 @@ export_presets.cfg
 **/.mono/
 **/data_*/
 mono_crash.*.json
+
+# Python-specific ignores
+__pycache__/
+**/*.pyc
