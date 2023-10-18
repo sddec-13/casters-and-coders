@@ -408,401 +408,401 @@ anims/fade_out = SubResource( 17 )
 [node name="SpawnPos" type="Position2D" parent="."]
 position = Vector2( 81, 342 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="MostOutLayerFire" type="Node2D" parent="."]
 
-[node name="fire3" type="Sprite" parent="Node2D"]
+[node name="fire3" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
-position = Vector2( 77, 163 )
+position = Vector2( 71, 161 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire2" type="Sprite" parent="Node2D"]
+[node name="fire2" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
-position = Vector2( 78, 111 )
+position = Vector2( 71, 111 )
 scale = Vector2( 0.104492, 0.113886 )
 texture = ExtResource( 7 )
 
-[node name="fire" type="Sprite" parent="Node2D"]
+[node name="fire" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
-position = Vector2( 78, 64 )
+position = Vector2( 72, 63 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire4" type="Sprite" parent="Node2D"]
+[node name="fire4" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
-position = Vector2( 76, 203 )
-scale = Vector2( 0.101562, 0.0996094 )
+position = Vector2( 74, 200.25 )
+scale = Vector2( 0.101562, 0.100586 )
 texture = ExtResource( 7 )
 
-[node name="fire5" type="Sprite" parent="Node2D"]
+[node name="fire5" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
-position = Vector2( 75, 239 )
-scale = Vector2( 0.101562, 0.0996094 )
+position = Vector2( 71, 238 )
+scale = Vector2( 0.101562, 0.100586 )
 texture = ExtResource( 7 )
 
-[node name="fire6" type="Sprite" parent="Node2D"]
+[node name="fire6" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 74, 281 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire7" type="Sprite" parent="Node2D"]
+[node name="fire7" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 68, 359 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 offset = Vector2( 39.3848, -341.333 )
 
-[node name="fire8" type="Sprite" parent="Node2D"]
+[node name="fire8" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 51, 197 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 offset = Vector2( 216.616, 1726.74 )
 
-[node name="fire9" type="Sprite" parent="Node2D"]
+[node name="fire9" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 75, 413 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire10" type="Sprite" parent="Node2D"]
+[node name="fire10" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 74, 454 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire11" type="Sprite" parent="Node2D"]
+[node name="fire11" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 74, 494 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire12" type="Sprite" parent="Node2D"]
+[node name="fire12" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 76, 538 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire13" type="Sprite" parent="Node2D"]
+[node name="fire13" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 121, 63 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire14" type="Sprite" parent="Node2D"]
+[node name="fire14" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 169, 65 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire15" type="Sprite" parent="Node2D"]
+[node name="fire15" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 222, 66 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire16" type="Sprite" parent="Node2D"]
+[node name="fire16" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 515, 60 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire17" type="Sprite" parent="Node2D"]
+[node name="fire17" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 462, 63 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire18" type="Sprite" parent="Node2D"]
+[node name="fire18" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 411, 62 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire19" type="Sprite" parent="Node2D"]
+[node name="fire19" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 362, 63 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire20" type="Sprite" parent="Node2D"]
+[node name="fire20" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 316, 65 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire21" type="Sprite" parent="Node2D"]
+[node name="fire21" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 271, 65 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire22" type="Sprite" parent="Node2D"]
+[node name="fire22" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 990, 132 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire23" type="Sprite" parent="Node2D"]
+[node name="fire23" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 991, 96 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire24" type="Sprite" parent="Node2D"]
+[node name="fire24" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 991, 61 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire25" type="Sprite" parent="Node2D"]
+[node name="fire25" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 952, 62 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire26" type="Sprite" parent="Node2D"]
+[node name="fire26" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 915, 61 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire27" type="Sprite" parent="Node2D"]
+[node name="fire27" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 873, 60 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire28" type="Sprite" parent="Node2D"]
+[node name="fire28" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 830, 58 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire29" type="Sprite" parent="Node2D"]
+[node name="fire29" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 785, 61 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire30" type="Sprite" parent="Node2D"]
+[node name="fire30" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 740, 60 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire31" type="Sprite" parent="Node2D"]
+[node name="fire31" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 695, 60 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire32" type="Sprite" parent="Node2D"]
+[node name="fire32" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 645, 58 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire33" type="Sprite" parent="Node2D"]
+[node name="fire33" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 602, 62 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire34" type="Sprite" parent="Node2D"]
+[node name="fire34" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 557, 60 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire35" type="Sprite" parent="Node2D"]
+[node name="fire35" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 202, 543 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire36" type="Sprite" parent="Node2D"]
+[node name="fire36" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 160, 541 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire37" type="Sprite" parent="Node2D"]
+[node name="fire37" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 118, 542 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire38" type="Sprite" parent="Node2D"]
+[node name="fire38" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
-position = Vector2( 979, 551 )
+position = Vector2( 985, 551 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire39" type="Sprite" parent="Node2D"]
+[node name="fire39" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
-position = Vector2( 986, 501 )
+position = Vector2( 986, 509 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire40" type="Sprite" parent="Node2D"]
+[node name="fire40" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 986, 468 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire41" type="Sprite" parent="Node2D"]
+[node name="fire41" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 986, 428 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire42" type="Sprite" parent="Node2D"]
+[node name="fire42" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 986, 391 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire43" type="Sprite" parent="Node2D"]
+[node name="fire43" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 987, 355 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire44" type="Sprite" parent="Node2D"]
+[node name="fire44" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 988, 319 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire45" type="Sprite" parent="Node2D"]
+[node name="fire45" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 989, 282 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire46" type="Sprite" parent="Node2D"]
+[node name="fire46" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 989, 245 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire47" type="Sprite" parent="Node2D"]
+[node name="fire47" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 989, 207 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire48" type="Sprite" parent="Node2D"]
+[node name="fire48" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 989, 170 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire49" type="Sprite" parent="Node2D"]
+[node name="fire49" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 664, 551 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire50" type="Sprite" parent="Node2D"]
+[node name="fire50" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 625, 549 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire51" type="Sprite" parent="Node2D"]
+[node name="fire51" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 583, 548 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire52" type="Sprite" parent="Node2D"]
+[node name="fire52" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 538, 550 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire53" type="Sprite" parent="Node2D"]
+[node name="fire53" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 497, 550 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire54" type="Sprite" parent="Node2D"]
+[node name="fire54" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 454, 550 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire55" type="Sprite" parent="Node2D"]
+[node name="fire55" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 411, 550 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire56" type="Sprite" parent="Node2D"]
+[node name="fire56" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 368, 548 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire57" type="Sprite" parent="Node2D"]
+[node name="fire57" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 325, 547 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire58" type="Sprite" parent="Node2D"]
+[node name="fire58" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 282, 547 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire59" type="Sprite" parent="Node2D"]
+[node name="fire59" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 242, 545 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire60" type="Sprite" parent="Node2D"]
+[node name="fire60" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 865, 551 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire61" type="Sprite" parent="Node2D"]
+[node name="fire61" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 823, 551 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire62" type="Sprite" parent="Node2D"]
+[node name="fire62" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 782, 551 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire63" type="Sprite" parent="Node2D"]
+[node name="fire63" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 744, 551 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire64" type="Sprite" parent="Node2D"]
+[node name="fire64" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 703, 551 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire65" type="Sprite" parent="Node2D"]
+[node name="fire65" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 941, 550 )
 scale = Vector2( 0.101562, 0.0996094 )
 texture = ExtResource( 7 )
 
-[node name="fire66" type="Sprite" parent="Node2D"]
+[node name="fire66" type="Sprite" parent="MostOutLayerFire"]
 material = SubResource( 19 )
 position = Vector2( 906, 550 )
 scale = Vector2( 0.101562, 0.0996094 )
