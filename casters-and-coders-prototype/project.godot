@@ -24,10 +24,6 @@ window/stretch/mode="2d"
 
 singletons=[ "res://pythonscript.gdnlib" ]
 
-[gdnative]
-
-singletons=[ "res://pythonscript.gdnlib" ]
-
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

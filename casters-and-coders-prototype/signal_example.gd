@@ -14,7 +14,7 @@ func _ready():
 	
 	# Call a method manually, not using signals. Python-side method
 	# then emits a signal that is routed back here. Appears to all be done on a single thread
-	self.get_node("Camera2D").exec_script("test_script.py")
+	self.get_node("Pynode").exec_script("test_script.py")
 	# Call method using signals
 	# unsure if the signal processing is done on a separate thread in GDScript
 	emit_signal("event_happened")
@@ -25,5 +25,5 @@ func _ready():
 
 # Handler for the signal sent by Python with arguments,
 # handlers with no-args work too
-func _on_Camera2D_script_finished_executing(script_name):
+func _on_Pynode_script_finished_executing(script_name):
 	print("Finished executing script with name " + script_name) # Replace with function body.
