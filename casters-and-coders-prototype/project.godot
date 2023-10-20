@@ -134,6 +134,7 @@ save={
 2d_physics/layer_5="Interactable Layer"
 2d_physics/layer_6="Bottomless Pit Layer"
 2d_physics/layer_7="Moving Platform Layer"
+2d_physics/layer_8="Fire Pit Layer"
 
 [physics]
 
