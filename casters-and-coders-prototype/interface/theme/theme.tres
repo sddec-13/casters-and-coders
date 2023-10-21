@@ -8,7 +8,7 @@
 [ext_resource path="res://interface/theme/stylebox_green_pixel_pressed.tres" type="StyleBox" id=6]
 
 [sub_resource type="StreamTexture" id=2]
-load_path = "res://.import/panel.png-9535982eaded27d3e12fceba743de959.stex"
+load_path = "res://.import/panel.png-da7d9dd56c5811a6d6fa048dae91d90e.stex"
 
 [sub_resource type="StyleBoxTexture" id=1]
 content_margin_left = 12.0
