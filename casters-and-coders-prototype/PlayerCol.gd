@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-
 var speed = 250
+signal event_happened
+
 var velocity = Vector2()
 
 func get_input():
@@ -9,6 +10,7 @@ func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed('move_right'):
 		velocity.x += 1
+		emit_signal("event_happened")
 	if Input.is_action_pressed('move_left'):
 		velocity.x -= 1
 	if Input.is_action_pressed('move_down'):
