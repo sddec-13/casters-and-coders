@@ -392,7 +392,6 @@ position = Vector2( 0, 27 )
 
 [node name="Fire2" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( -1, 92 )
-scale = Vector2( 1, 1 )
 
 [node name="Fire17" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 66, 27 )
@@ -498,49 +497,42 @@ position = Vector2( 810, 486 )
 
 [node name="Fire3" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( -1, 227 )
-scale = Vector2( 1, 1 )
 
 [node name="Fire4" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 0, 162 )
 
 [node name="Fire5" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( -1, 358 )
-scale = Vector2( 1, 1 )
 
 [node name="Fire6" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 0, 293 )
 
 [node name="Fire7" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( -1, 485 )
-scale = Vector2( 1, 1 )
 
 [node name="Fire8" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 0, 420 )
 
 [node name="Fire9" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 877, 92 )
-scale = Vector2( 1, 1 )
 
 [node name="Fire10" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 878, 27 )
 
 [node name="Fire11" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 877, 227 )
-scale = Vector2( 1, 1 )
 
 [node name="Fire12" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 878, 162 )
 
 [node name="Fire13" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 877, 358 )
-scale = Vector2( 1, 1 )
 
 [node name="Fire14" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 878, 293 )
 
 [node name="Fire15" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 877, 485 )
-scale = Vector2( 1, 1 )
 
 [node name="Fire16" parent="FireLayer1" instance=ExtResource( 4 )]
 position = Vector2( 878, 420 )
