@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://art_assets/fireRelated/fire5.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Fire.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=18]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+
+void fragment(){
+	vec4 base = texture(TEXTURE, UV);
+	vec4 n = texture(noise, vec2(UV.x, UV.y +TIME));
+	
+	base.r += -.4f -distance(vec2(0.5,UV.y),UV);
+	base.r += (base.r * 0.3)+ (n.r * 0.4);
+	
+	
+	COLOR = vec4(float(base.r > 0.4),float(base.r > 0.5),float(base.r > 0.6), float(base.r > 0.4));
+}"
+
+[sub_resource type="OpenSimplexNoise" id=20]
+
+[sub_resource type="NoiseTexture" id=21]
+seamless = true
+noise = SubResource( 20 )
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = SubResource( 18 )
+shader_param/noise = SubResource( 21 )
+
+[sub_resource type="CircleShape2D" id=22]
+radius = 27.4591
+
+[node name="Fire" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="fire" type="Sprite" parent="."]
+material = SubResource( 19 )
+position = Vector2( 86.5001, 48.7787 )
+scale = Vector2( 0.158203, 0.155161 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 87, 60 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="body_entered" from="." to="." method="_on_Fire_body_entered"]

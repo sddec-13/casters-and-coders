@@ -1,0 +1,53 @@
+# Script for moving platform
+
+extends KinematicBody2D
+
+signal change_room
+signal interact_object
+
+var speed = 300
+var velocity = Vector2()
+var nearby_object : StaticBody2D = null
+var collision_info : KinematicCollision2D = null
+
+func _ready():
+	get_parent().get_node("DialogLayer/PopupDialog/Label").text = "You have entered a bottomless pit room!"
+	get_parent().get_node("DialogLayer/PopupDialog/").show_popup(3)
+	
+func get_input():
+	# Detect up/down/left/right keystate and only move when pressed.
+	velocity = Vector2()
+
+	if Input.is_action_pressed('move_right'):
+		velocity.x += 1
+	elif Input.is_action_pressed('move_left'):
+		velocity.x -= 1
+	elif Input.is_action_pressed('move_down'):
+		velocity.y += 1
+	elif Input.is_action_pressed('move_up'):
+		velocity.y -= 1
+	elif Input.is_action_pressed("interact"):
+		if nearby_object:
+			interact_object(nearby_object)
+	
+	velocity = velocity.normalized() * speed
+		
+func _physics_process(delta):
+	get_input()
+	if velocity.x == 0 and velocity.y == 0:
+		$AnimatedSprite.animation = "idle"
+	elif velocity.x != 0 || velocity.y != 0:
+		$AnimatedSprite.animation = "run"
+		$AnimatedSprite.flip_h = velocity.x < 0
+		
+	$AnimatedSprite.play()
+	collision_info = move_and_collide(velocity * delta)
+
+func interact_object(object : StaticBody2D):
+	print("INTERACTING")
+	match object.object_type:
+		"door": # case door
+			Global.from_room = get_parent().room_name
+			emit_signal("change_room", object.door_to)
+		"item": # case item
+			emit_signal("interact_object", object)
