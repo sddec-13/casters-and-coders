@@ -1,11 +1,13 @@
 from godot import exposed, export, signal
 from godot import *
 
+from casters.api_generator import ApiGenerator
+
 @exposed
 class signal_manager(Node):
 	script_started_executing = signal()
 	script_finished_executing = signal()
-	
+	inputs = {"input_var": True}
 	
 
 	def _ready(self):
@@ -34,6 +36,9 @@ class signal_manager(Node):
 		
 		"""
 		self._puzzle_def = puzzle_def
+		self.api_generator = ApiGenerator(self._puzzle_def)
+		self.api = self.api_generator.generate_api(self)
+		print(f"Input var: {self.api['input_var']()}")
 
 	def exec_script(self, script_file: str, *args) -> None:
 		"""
