@@ -9,18 +9,23 @@ class ApiGenerator():
 		self.puzzle_def = puzzle_def
 		
 	
-	def gen_input_var(self, manager, name: str, signal: str) -> Callable[[], Any]:
-		# TODO this is just a placeholder for now, we actually want to
-		# automatically connect the signal to a function that sets the
-		# variable
-		def input_var():
-			return manager.inputs[name]
+	def gen_input_var(self, manager, name: str, node: str, signal: str) -> Any:
+
+		def set_input_var(env: dict, value, *args):
+			print(f"Setting var {name} to {value}")
+			env[name] = value
 			
-		return input_var
+		manager.add_handler(node, signal, set_input_var)
+		return None
 	
 	def gen_input(self, manager, script_input: Dict[str, Any]) -> Any:
 		if InterfaceType[str(script_input["type"])] == InterfaceType.VAR_DEF:
-			return self.gen_input_var(manager, str(script_input["name"]), str(script_input["signal"]))
+			return self.gen_input_var(
+				manager,
+				str(script_input["name"]),
+				str(script_input["node"]),
+				str(script_input["signal"])
+			)
 	
 	def generate_api(self, manager) -> Dict[str, Any]:
 		api = dict()

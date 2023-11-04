@@ -335,6 +335,8 @@ script = ExtResource( 9 )
 puzzle_definition = {
 "inputs": [ {
 "name": "input_var",
+"node": NodePath("../../AnimationPlayer"),
+"signal": "animation_finished",
 "type": "VAR_DEF"
 } ],
 "name": "test_puzzle"

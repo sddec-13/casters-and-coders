@@ -1,6 +1,9 @@
 from godot import exposed, export, signal
 from godot import *
 
+from functools import partial
+from typing import Callable
+
 from casters.api_generator import ApiGenerator
 
 @exposed
@@ -8,13 +11,20 @@ class signal_manager(Node):
 	script_started_executing = signal()
 	script_finished_executing = signal()
 	inputs = {"input_var": True}
+	handlers = dict()
 	
+	def __init__(self):
+		super().__init__()
+		self._puzzle_def = dict()
 
 	def _ready(self):
 		"""
 		Called every time the node is added to the scene.
 		Initialization here.
 		"""
+		self.api_generator = ApiGenerator(self._puzzle_def)
+		self.api = self.api_generator.generate_api(self)
+		#print(f"Input var: {self.api['input_var']()}")
 		pass
 		
 
@@ -36,9 +46,17 @@ class signal_manager(Node):
 		
 		"""
 		self._puzzle_def = puzzle_def
-		self.api_generator = ApiGenerator(self._puzzle_def)
-		self.api = self.api_generator.generate_api(self)
-		print(f"Input var: {self.api['input_var']()}")
+		
+
+	def add_handler(self, node: str, sig: str, fun: Callable) -> None:
+		self.handlers.setdefault(sig, []).append(fun)
+		self.__dict__[f"handle_{sig}"] = partial(self.handle_sig, sig)
+		self.get_node(node).connect(sig, self, f"handle_{sig}")
+
+	def handle_sig(self, sig_name: str, *args) -> None:
+		for handler in self.handlers[sig_name]:
+			handler(self.inputs, *args)
+		print(f"Environment: {self.inputs}")
 
 	def exec_script(self, script_file: str, *args) -> None:
 		"""
