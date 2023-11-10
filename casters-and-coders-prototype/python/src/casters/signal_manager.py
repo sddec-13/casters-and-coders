@@ -11,7 +11,9 @@ class signal_manager(Node):
 	script_started_executing = signal()
 	script_finished_executing = signal()
 	inputs = {"input_var": True}
+	output_vars = dict()
 	handlers = dict()
+	connections = dict()
 	
 	def __init__(self):
 		super().__init__()
@@ -47,6 +49,10 @@ class signal_manager(Node):
 		"""
 		self._puzzle_def = puzzle_def
 		
+	def connect_to_signal(self, node: str, sig: str, fun: Callable) -> None:
+		self.connections.setdefault(sig, []).append(fun)
+		self.connect(sig, get_node(node), f"_on_{sig}")
+
 
 	def add_handler(self, node: str, sig: str, fun: Callable) -> None:
 		self.handlers.setdefault(sig, []).append(fun)
