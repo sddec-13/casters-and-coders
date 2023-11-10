@@ -79,7 +79,7 @@ func fireTrapEnd():
 	$Key.visible = false
 	$Key.get_node("CollidingArea").disabled = true
 	$Key.get_node("Actionable/ActionableArea").disabled = true
-	
+	get_node("DoorMain").object_type = "door" # door is now unlocked
 	$FireLayer1.visible = false
 	$FireLayer2.visible = false
 	$FireLayer3.visible = false
