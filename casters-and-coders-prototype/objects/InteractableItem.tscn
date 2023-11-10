@@ -13,9 +13,6 @@ extents = Vector2( 38.5, 38.5 )
 [node name="InteractableItem" type="StaticBody2D"]
 script = ExtResource( 2 )
 object_type = "item"
-object_data = {
-"type": "null"
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 617, 310 )

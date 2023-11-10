@@ -437,9 +437,6 @@ position = Vector2( 517, 302 )
 [node name="PopupDialog" parent="." instance=ExtResource( 5 )]
 
 [node name="Statue" parent="." instance=ExtResource( 4 )]
-object_data = {
-"type": "statue"
-}
 
 [connection signal="change_room" from="Player" to="." method="_on_Player_change_room"]
 [connection signal="interact_object" from="Player" to="." method="_on_Player_interact_object"]

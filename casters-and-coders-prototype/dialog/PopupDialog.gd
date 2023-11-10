@@ -1,7 +1,8 @@
 extends PopupDialog
 
 
-func show_popup(duration : float):
+func show_popup(message: String, duration : float):
+	$Label.text = message
 	self.popup()
 	yield(get_tree().create_timer(duration), "timeout")
 	self.hide()
