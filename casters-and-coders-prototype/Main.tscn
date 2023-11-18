@@ -4,7 +4,7 @@
 [ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" type="Texture" id=2]
 [ext_resource path="res://interface/code_editor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://signal_example.gd" type="Script" id=4]
-[ext_resource path="res://python/src/casters/host_api.py" type="Script" id=5]
+[ext_resource path="res://python/src/casters/signal_manager.py" type="Script" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 8.99305, 0, 16.1639, 0, 16.1639, 32, 8.79924, 32 )
@@ -277,6 +277,10 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 
 [node name="PlayerCol" parent="Game" instance=ExtResource( 1 )]
 position = Vector2( 173.333, 109.667 )
 scale = Vector2( 1, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="Game/PlayerCol"]
+current = true
+script = ExtResource( 5 )
 
 [node name="InterfaceCanvas" type="CanvasLayer" parent="."]
 visible = false

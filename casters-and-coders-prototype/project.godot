@@ -145,6 +145,10 @@ save={
 
 common/enable_pause_aware_picking=true
 
+[python_script]
+
+path="res://;res://lib;res://python/src"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
