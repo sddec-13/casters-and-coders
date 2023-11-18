@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/Room.gd" type="Script" id=1]
 [ext_resource path="res://scenes/EventNode.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" type="Texture" id=6]
 [ext_resource path="res://dialog/PopupDialog.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/PlayerCol.tscn" type="PackedScene" id=8]
+[ext_resource path="res://python/src/casters/signal_manager.py" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 8.99305, 0, 16.1639, 0, 16.1639, 32, 8.79924, 32 )
@@ -330,6 +331,16 @@ position = Vector2( 512, 303 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 0, 2 )
+script = ExtResource( 9 )
+puzzle_definition = {
+"inputs": [ {
+"name": "input_var",
+"node": NodePath("../../AnimationPlayer"),
+"signal": "animation_finished",
+"type": "VAR_DEF"
+} ],
+"name": "test_puzzle"
+}
 
 [node name="DoorToTutorial2" type="StaticBody2D" parent="."]
 position = Vector2( 1544, -254 )
