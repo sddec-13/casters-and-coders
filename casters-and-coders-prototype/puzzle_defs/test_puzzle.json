@@ -1,0 +1,26 @@
+{
+    "inputs": [
+        {
+            "name": "button_pressed",
+            "signature": {
+                "some_number": "Number",
+                "some_string": "String"
+            }
+        },
+        {
+            "name": "button_pressed",
+            "signature": {
+                "some_number": "Number",
+                "some_string": "String"
+            }
+        }
+    ],
+    "outputs": [
+        {
+            "name": "open_door",
+            "signature": {
+                "password": "String"
+            }
+        }
+    ]
+}

@@ -27,6 +27,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://scenes/Global.tscn"
+PythonManager="*res://python_engine/python_manager.tscn"
+PuzzleLoader="*res://python_engine/puzzle_loader.gd"
 
 [display]
 
@@ -41,8 +43,8 @@ singletons=[ "res://pythonscript.gdnlib" ]
 
 run=false
 layer=false
-root=false
 scene=false
+root=false
 
 [gui]
 
