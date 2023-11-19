@@ -1,4 +1,5 @@
 extends Node
+# Main room script
 
 signal room_changed(room_name)
 
@@ -34,13 +35,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			new_room = null
 
 func _on_Player_interact_object(object):
-	var item_type = object.object_data.type
-	print(object.objects[item_type]) # prints the object description
-	$PopupDialog/Label.text = object.objects[item_type]
-	$PopupDialog.show_popup(3)
-	
-	
-	
-	
-	
+	var item_type = object.data["type"]
+	print(object.item_description[item_type]) # prints the object description
+	$PopupDialog.show_popup(object.item_description[item_type], 3)
 	

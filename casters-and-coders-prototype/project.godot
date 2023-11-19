@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="casters&coders-proto"
-run/main_scene="res://scenes/Rooms/TutorialRoom1.tscn"
+run/main_scene="res://scenes/Rooms/TutorialRoom3.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -41,6 +41,7 @@ singletons=[ "res://pythonscript.gdnlib" ]
 
 run=false
 layer=false
+root=false
 
 [gui]
 

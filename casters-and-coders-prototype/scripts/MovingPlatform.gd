@@ -11,8 +11,8 @@ var nearby_object : StaticBody2D = null
 var collision_info : KinematicCollision2D = null
 
 func _ready():
-	get_parent().get_node("DialogLayer/PopupDialog/Label").text = "You have entered a bottomless pit room!"
-	get_parent().get_node("DialogLayer/PopupDialog/").show_popup(3)
+#	get_parent().get_node("DialogLayer/PopupDialog/Label").text = "You have entered a bottomless pit room!"
+	get_parent().get_node("DialogLayer/PopupDialog/").show_popup("You have entered a bottomless pit room!", 3)
 	
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed.

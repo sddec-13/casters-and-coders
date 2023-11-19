@@ -1,9 +1,9 @@
 # This is the player script which contains game logic relating to the player character
-
 extends KinematicBody2D
 
 signal change_room
 signal interact_object
+signal door_locked
 
 var speed = 250
 var velocity = Vector2()
@@ -51,5 +51,7 @@ func interact_object(object : StaticBody2D):
 		"door": # case door
 			Global.from_room = get_parent().room_name
 			emit_signal("change_room", object.door_to)
+		"door_locked": # case locked door
+			emit_signal("door_locked")			
 		"item": # case item
 			emit_signal("interact_object", object)

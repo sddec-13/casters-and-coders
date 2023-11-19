@@ -479,7 +479,7 @@ position = Vector2( 81, 342 )
 
 [node name="Lever" parent="." instance=ExtResource( 8 )]
 position = Vector2( -226, -194 )
-object_data = {
+data = {
 "type": "bridge_lever"
 }
 
@@ -499,7 +499,6 @@ margin_bottom = -168.0
 [node name="EventNode" parent="." instance=ExtResource( 12 )]
 
 [connection signal="change_room" from="Player" to="." method="_on_Player_change_room"]
-[connection signal="interact_object" from="Player" to="." method="_on_Player_interact_object"]
 [connection signal="interact_object" from="Player" to="." method="_on_Bridge_Activated"]
 [connection signal="body_entered" from="DoorToTutorial3/Actionable" to="DoorToTutorial3/Actionable" method="_on_Player_entered"]
 [connection signal="body_exited" from="DoorToTutorial3/Actionable" to="DoorToTutorial3/Actionable" method="_on_Player_exited"]
