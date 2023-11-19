@@ -73,6 +73,9 @@ class python_engine(Node):
 		# holds the only reference to this puzzle's execution context, the GC
 		# will eat it as soon as the reference is dropped.
 	
+	def clear(self):
+		self.running_puzzles.clear()
+	
 	def input(self, puzzle_name: str, input_name: str, args: list):
 		name = str(puzzle_name)
 		input_name = str(input_name)
