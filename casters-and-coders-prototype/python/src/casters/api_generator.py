@@ -79,10 +79,15 @@ class ApiGenerator():
 	
 	def generate_api(self, manager) -> Dict[str, Any]:
 		api = dict()
+		if "name" not in self.puzzle_def:
+			raise Exception("Field 'name' missing from puzzle def.")
 		api["__name__"] = str(self.puzzle_def["name"])
-		for script_input in self.puzzle_def["inputs"]:
-			api[str(script_input["name"])] = self.gen_input(manager, script_input)
-			
-		for script_output in self.puzzle_def["outputs"]:
-			api[str(script_output["name"])] = self.gen_output(manager, script_output)
+		
+		if "inputs" in self.puzzle_def:
+			for script_input in self.puzzle_def["inputs"]:
+				api[str(script_input["name"])] = self.gen_input(manager, script_input)
+		
+		if "outputs" in self.puzzle_def:
+			for script_output in self.puzzle_def["outputs"]:
+				api[str(script_output["name"])] = self.gen_output(manager, script_output)
 		return api

@@ -280,7 +280,6 @@ scale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Game/PlayerCol"]
 current = true
-script = ExtResource( 5 )
 
 [node name="InterfaceCanvas" type="CanvasLayer" parent="."]
 visible = false
@@ -292,5 +291,9 @@ script = ExtResource( 4 )
 
 [node name="Pynode" type="Node2D" parent="Camera2D"]
 script = ExtResource( 5 )
+puzzle_definition = {
+"inputs": [ null ],
+"name": "test"
+}
 
 [connection signal="script_finished_executing" from="Camera2D/Pynode" to="Camera2D" method="_on_Pynode_script_finished_executing"]

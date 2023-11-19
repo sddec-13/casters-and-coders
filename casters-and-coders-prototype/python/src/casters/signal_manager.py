@@ -14,20 +14,21 @@ class signal_manager(Node):
 	output_vars = dict()
 	handlers = dict()
 	connections = dict()
-	
-	def __init__(self):
-		super().__init__()
-		self._puzzle_def = dict()
+	_puzzle_def = dict()
 
 	def _ready(self):
 		"""
 		Called every time the node is added to the scene.
 		Initialization here.
 		"""
-		self.api_generator = ApiGenerator(self._puzzle_def)
-		self.api = self.api_generator.generate_api(self)
-		#print(f"Input var: {self.api['input_var']()}")
-		pass
+		
+		try:
+			self.api_generator = ApiGenerator(self._puzzle_def)
+			self.api = self.api_generator.generate_api(self)
+			#print(f"Input var: {self.api['input_var']()}")
+		except Exception as e:
+			# forward exceptions, printing the path so that nodes can be tracked down
+			raise Exception(f"Exception in {self.get_path()}") from e
 		
 
 	# Handler for the signal sent by GDScript

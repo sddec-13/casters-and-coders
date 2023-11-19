@@ -44,7 +44,7 @@ var event_rooms = {
 }
 
 func _ready():
-	event_stage = 0	
+	event_stage = 0
 	var room = get_parent().room_name
 	events = event_rooms[room]
 

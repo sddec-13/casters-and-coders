@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="casters&coders-proto"
-run/main_scene="res://scenes/Rooms/TutorialRoom3.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -42,6 +42,7 @@ singletons=[ "res://pythonscript.gdnlib" ]
 run=false
 layer=false
 root=false
+scene=false
 
 [gui]
 
@@ -140,6 +141,13 @@ save={
 2d_physics/layer_6="Bottomless Pit Layer"
 2d_physics/layer_7="Moving Platform Layer"
 2d_physics/layer_8="Fire Pit Layer"
+
+[network]
+
+limits/debugger_stdout/max_chars_per_second=8192
+limits/debugger_stdout/max_messages_per_frame=40
+limits/debugger_stdout/max_errors_per_second=400
+limits/debugger_stdout/max_warnings_per_second=400
 
 [physics]
 
