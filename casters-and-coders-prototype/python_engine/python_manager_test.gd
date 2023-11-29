@@ -6,12 +6,12 @@ func _ready():
 	
 	PythonManager.load_puzzle("test_puzzle")
 	
-	PythonManager.input("test_puzzle", "button_pressed", [])
+	PythonManager.run_user_callback("test_puzzle", "button_pressed", [])
 	
 	print("Dropping all running puzzles")
 	PythonManager.clear()
 	# This finds nothing and prints a warning
-	PythonManager.input("test_puzzle", "button_pressed", [])
+	PythonManager.run_user_callback("test_puzzle", "button_pressed", [])
 
 func handle_output(name, output_name, args):
 	print("Recieved output for puzzle '%s' with name '%s', having %d args" % [name, output_name, len(args)])

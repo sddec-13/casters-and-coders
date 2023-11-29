@@ -11,4 +11,4 @@ func _ready():
 	interactable.connect("interacted", self, "_interacted")
 
 func _interacted():
-	PythonManager.input(puzzle_name, input_name, [])
+	PythonManager.run_user_callback(puzzle_name, input_name, [])

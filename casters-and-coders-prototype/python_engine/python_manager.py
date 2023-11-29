@@ -65,24 +65,37 @@ class python_engine(Node):
 	def unload_puzzle(self, name: str):
 		if name not in self.running_puzzles:
 			return
-		# This removes the key from the dict
-		self.running_puzzles.pop(name, None)
-		# This method may seem simplistic, but if we ensure that running_puzzles
-		# holds the only reference to this puzzle's execution context, the GC
-		# will eat it as soon as the reference is dropped.
+		# This pops and deletes both the key (name) and the value (the puzzle)
+		del self.running_puzzles[name]
 	
 	def clear(self):
 		self.running_puzzles.clear()
 	
-	def input(self, puzzle_name: str, input_name: str, args: list):
+	def set_var(self, puzzle_name: str, var_name: str, value: Any):
 		name = str(puzzle_name)
-		input_name = str(input_name)
+		var_name_name = str(var_name)
+		if name not in self.running_puzzles:
+			print(f"Tried to give input var to puzzle that is not running: {puzzle_name}")
+			return
+		execution = self.running_puzzles[name]
+		try:
+			execution.context[var_name] = value
+		except Exception as e:
+			print("exception when calling into guest script:")
+			print(e)
+	
+	def run_user_callback(self, puzzle_name: str, callback_name: str, args: list):
+		name = str(puzzle_name)
+		callback_name = str(calback_name)
 		if name not in self.running_puzzles:
 			print(f"Tried to give input to puzzle that is not running: {puzzle_name}")
 			return
 		execution = self.running_puzzles[name]
+		if callback_name not in execution.context:
+			print("Could not find user callback")
+			return
 		try:
-			execution.context[input_name](*args)
+			execution.context[callback_name](*args)
 		except Exception as e:
 			print("exception when calling into guest script:")
 			print(e)
