@@ -17,9 +17,9 @@
     ],
     "outputs": [
         {
-            "name": "open_door",
+            "name": "set_door_open",
             "signature": {
-                "password": "String"
+                "open": "Boolean"
             }
         }
     ]
