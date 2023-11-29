@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Actionable",
 "language": "GDScript",
 "path": "res://actionable/actionable.gd"
+}, {
+"base": "Area2D",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://interactable/interactable.gd"
 } ]
 _global_script_class_icons={
-"Actionable": ""
+"Actionable": "",
+"Interactable": ""
 }
 
 [application]
@@ -29,6 +35,7 @@ config/icon="res://icon.png"
 Global="*res://scenes/Global.tscn"
 PythonManager="*res://python_engine/python_manager.tscn"
 PuzzleLoader="*res://python_engine/puzzle_loader.gd"
+MenuManager="*res://interface/MenuManager.tscn"
 
 [display]
 
