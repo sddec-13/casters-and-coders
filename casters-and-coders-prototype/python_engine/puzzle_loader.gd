@@ -17,6 +17,8 @@ func load_definition(name: String):
 	if parse.error != OK:
 		print("error parsing JSON definition for ", name)
 		print(parse.error_string, parse.error_line)
+		return {}
+	return parse.result
 
 func load_source(name: String) -> String:
 	var f = File.new()
@@ -31,3 +33,13 @@ func load_source(name: String) -> String:
 	var source = f.get_as_text()
 	f.close()
 	return source
+
+func save_source(name: String, source: String):
+	var f = File.new()
+	var path = "user://puzzle_scripts/%s.py" % name
+	var err = f.open(path, File.WRITE)
+	if err != OK:
+		print("Failed to save source for " + path)
+		return
+	f.store_string(source)
+	f.close()
