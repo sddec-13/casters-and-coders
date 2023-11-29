@@ -15,6 +15,9 @@ func _ready():
 	pass # Replace with function body.
 
 func open(puzzle_name: String):
+	if current_puzzle_name != null or self.visible:
+		return
+	
 	var def = PuzzleLoader.load_definition(puzzle_name)
 	if def == {}:
 		# We don't need to print an error, the Puzzleloader will print one if it's returning {}.

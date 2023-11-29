@@ -14,6 +14,7 @@ onready var interactable_finder = $InteractableFinder
 var nearest_interactable: Area2D = null
 
 func get_input():
+	# Don't process input if a menu is open
 	if MenuManager.is_some_menu_open():
 		return
 	# Detect up/down/left/right keystate and only move when pressed.
@@ -25,19 +26,19 @@ func get_input():
 		
 	if Input.is_action_pressed('move_right'):
 		velocity.x += 1
-	elif Input.is_action_pressed('save'):
-		print("1")
-	elif Input.is_action_pressed('move_left'):
+	if Input.is_action_pressed('move_left'):
 		velocity.x -= 1
-	elif Input.is_action_pressed('move_down'):
+	if Input.is_action_pressed('move_down'):
 		velocity.y += 1
-	elif Input.is_action_pressed('move_up'):
+	if Input.is_action_pressed('move_up'):
 		velocity.y -= 1
-	elif Input.is_action_just_pressed("interact"):
+	
+	if Input.is_action_just_pressed("interact"):
 		if nearest_interactable and nearest_interactable.has_signal("interacted"):
 			nearest_interactable.emit_signal("interacted")
 			
 		
+	print(velocity)
 	velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
@@ -46,6 +47,8 @@ func _physics_process(delta):
 		$AnimatedSprite.animation = "idle"
 	elif velocity.x != 0 || velocity.y != 0:
 		$AnimatedSprite.animation = "run"
+	
+	if velocity.x != 0:
 		$AnimatedSprite.flip_h = velocity.x < 0
 		
 	$AnimatedSprite.play()
