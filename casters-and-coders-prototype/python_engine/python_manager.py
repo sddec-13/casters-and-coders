@@ -42,7 +42,7 @@ class python_engine(Node):
 		if definition is None or source is None:
 			return
 		
-		outputs = {}
+		context = {"__state__":dict()}
 		for o in definition["outputs"]:
 			output_name = str(o["name"])
 			def output_func(*args):
@@ -53,10 +53,22 @@ class python_engine(Node):
 				# I've verified that primitives pass through ok. We might need to explicitly
 				# convert more complex objects.
 				self.call("emit_signal", "output", name, output_name, godot.Array(list(args))) 
-			outputs[output_name] = output_func
+			context[output_name] = output_func
+			
+		for i in definition["input_getters"]:
+			input_name = str(i["name"])
+			def input_getter(*args):
+				# We use self.call, because emit_signal isn't bound right
+				# All actual function args are in the list args. Variatics would
+				# be nice, but gdscript doesn't support them well.
+				# We do have to convert args from a tuple to a list, and then to a godot array
+				# I've verified that primitives pass through ok. We might need to explicitly
+				# convert more complex objects.
+				return context["__state__"][input_name]
+			context[input_name] = input_getter
 		
 		try:
-			ex = PuzzleExecution(name, source, outputs)
+			ex = PuzzleExecution(name, source, context)
 			ex.start()
 			self.running_puzzles[name] = ex
 		except Exception as e:
@@ -70,6 +82,19 @@ class python_engine(Node):
 	
 	def clear(self):
 		self.running_puzzles.clear()
+	
+	def update_state(self, puzzle_name: str, key: str, val: Any):
+		name = str(puzzle_name)
+		key = str(key)
+		if name not in self.running_puzzles:
+			print(f"Tried to set key/val in state to puzzle that is not running: {puzzle_name}")
+			return
+		execution = self.running_puzzles[name]
+		try:
+			execution.context["__state__"][key] = value
+		except Exception as e:
+			print("exception when calling into guest script:")
+			print(e)
 	
 	def set_var(self, puzzle_name: str, var_name: str, value: Any):
 		name = str(puzzle_name)
