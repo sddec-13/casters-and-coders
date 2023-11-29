@@ -3,13 +3,19 @@ from godot import *
 import godot
 from typing import List, Dict, Callable
 import json
+import sys
 
 
 class PuzzleExecution:
 	def __init__(self, name: str, source: str, outputs: Dict[str, Callable]):
 		self.name = name
 		self.context = {**outputs}
-		self.code_obj = compile(source, name, "exec")
+		try:
+			self.code_obj = compile(source, name, "exec")
+		except SyntaxError as s:
+			# TODO a way to tell the user the script is broken
+			print("USER SCRIPT DID NOT COMPILE", file=sys.stderr)
+			print(s, file=sys.stderr)
 
 	def start(self):
 		exec(self.code_obj, self.context)
@@ -43,7 +49,7 @@ class python_engine(Node):
 			return
 		
 		context = {"__state__":dict()}
-		for o in definition["outputs"]:
+		for o in definition.get("outputs", default=[]):
 			output_name = str(o["name"])
 			def output_func(*args):
 				# We use self.call, because emit_signal isn't bound right
@@ -55,15 +61,11 @@ class python_engine(Node):
 				self.call("emit_signal", "output", name, output_name, godot.Array(list(args))) 
 			context[output_name] = output_func
 			
-		for i in definition["input_getters"]:
+		for i in definition.get("input_getters", default=[]):
 			input_name = str(i["name"])
 			def input_getter(*args):
-				# We use self.call, because emit_signal isn't bound right
-				# All actual function args are in the list args. Variatics would
-				# be nice, but gdscript doesn't support them well.
-				# We do have to convert args from a tuple to a list, and then to a godot array
-				# I've verified that primitives pass through ok. We might need to explicitly
-				# convert more complex objects.
+				if input_name not in context["__state__"]:
+					return None
 				return context["__state__"][input_name]
 			context[input_name] = input_getter
 		
