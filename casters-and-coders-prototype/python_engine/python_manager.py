@@ -3,7 +3,8 @@ from godot import *
 import godot
 from typing import List, Dict, Callable
 import json
-
+import traceback
+import sys
 
 class PuzzleExecution:
 	def __init__(self, name: str, source: str, outputs: Dict[str, Callable], other_context = {}):
@@ -96,3 +97,11 @@ class python_engine(Node):
 		except Exception as e:
 			print("exception when calling into guest script:")
 			print(e)
+			
+			# This is how you can get a line number, but I'm not sure how to get it for the guest script.
+			# It gives the line where the input function is triggered just above.
+#			exc_type, exc_obj, exc_tb = sys.exc_info()
+#			line_number = exc_tb.tb_lineno
+			# Python can't see godot constants, so we have to use this int enum directly.
+			# 1 is for red error text
+			self.log.push_message(str(e), 1)
