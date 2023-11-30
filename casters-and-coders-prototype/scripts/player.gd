@@ -41,7 +41,6 @@ func get_input():
 
 	
 	if Input.is_action_just_pressed("interact"):
-		print("nearest interactable: ", nearest_interactable)
 		if nearest_interactable and nearest_interactable.has_signal("interacted"):
 			nearest_interactable.emit_signal("interacted")
 	

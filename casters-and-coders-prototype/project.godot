@@ -37,6 +37,7 @@ PythonManager="*res://python_engine/python_manager.tscn"
 PuzzleLoader="*res://python_engine/puzzle_loader.gd"
 MenuManager="*res://interface/MenuManager.tscn"
 SceneSwitcher="*res://scenes/SceneSwitcher.tscn"
+Log="*res://interface/Log.tscn"
 
 [display]
 
