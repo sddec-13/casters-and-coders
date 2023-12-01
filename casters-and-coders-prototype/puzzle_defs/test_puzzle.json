@@ -2,24 +2,34 @@
     "inputs": [
         {
             "name": "button_pressed",
+            "description": "This is a hook that is triggered whenever a button is pressed. Use it wisely.",
             "signature": {
-                "some_number": "Number",
-                "some_string": "String"
+                "some_number": {
+                    "type": "number"
+                },
+                "some_string": {
+                    "type": "str",
+                    "description": "This is an argument which might well be a string. Who am I to judge"
+                }
             }
         },
         {
-            "name": "button_pressed",
+            "name": "button_pressed_2",
             "signature": {
-                "some_number": "Number",
-                "some_string": "String"
+                "some_number": {},
+                "some_string": {}
             }
         }
     ],
     "outputs": [
         {
             "name": "set_door_open",
+            "description": "This function sets a door to be open or closed. Use it unwisely.",
             "signature": {
-                "open": "Boolean"
+                "open": {
+                    "type": "boolean",
+                    "description": "whether the door should be open or not."
+                }
             }
         }
     ]
