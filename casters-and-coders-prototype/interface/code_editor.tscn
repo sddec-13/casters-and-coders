@@ -36,33 +36,34 @@ custom_constants/separation = 8
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_right = 1256.0
-margin_bottom = 38.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_right = 1198.0
-margin_bottom = 38.0
+margin_right = 1193.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
-margin_right = 60.0
-margin_bottom = 38.0
+visible = false
+margin_right = 66.0
+margin_bottom = 41.0
 text = "Button"
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
-margin_left = 64.0
-margin_right = 124.0
-margin_bottom = 38.0
+visible = false
+margin_right = 66.0
+margin_bottom = 41.0
 text = "Button"
 
 [node name="CloseButton" type="Button" parent="VBoxContainer/HBoxContainer"]
-margin_left = 1202.0
+margin_left = 1197.0
 margin_right = 1256.0
-margin_bottom = 38.0
+margin_bottom = 41.0
 text = "Close"
 
 [node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
-margin_top = 46.0
+margin_top = 49.0
 margin_right = 1256.0
 margin_bottom = 696.0
 size_flags_horizontal = 3
@@ -70,7 +71,7 @@ size_flags_vertical = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HSplitContainer"]
 margin_right = 410.0
-margin_bottom = 650.0
+margin_bottom = 647.0
 rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -79,7 +80,7 @@ size_flags_vertical = 3
 margin_left = 12.0
 margin_top = 12.0
 margin_right = 398.0
-margin_bottom = 638.0
+margin_bottom = 635.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -92,7 +93,7 @@ custom_constants/separation = 10
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer/HSplitContainer"]
 margin_left = 426.0
 margin_right = 1256.0
-margin_bottom = 650.0
+margin_bottom = 647.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3

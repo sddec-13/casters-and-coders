@@ -1,0 +1,30 @@
+{
+    "inputs": [
+        {
+            "name": "lever_pulled",
+            "description": "This hook is triggered when a lever is pulled.",
+            "signature": {
+                "lever_number": {
+                    "type": "number",
+                    "description": "The number of the lever that was pulled"
+                },
+                "pulled_right": {
+                    "type": "bool",
+                    "description": "True if the lever was pulled to the right. False if to the left."
+                }
+            }
+        }
+    ],
+    "outputs": [
+        {
+            "name": "lower_bridge",
+            "description": "This function will lower one bridge. It will begin to raise again after a few seconds.",
+            "signature": {
+                "bridge_number": {
+                    "type": "number",
+                    "description": "Which bridge to lower."
+                }
+            }
+        }
+    ]
+}

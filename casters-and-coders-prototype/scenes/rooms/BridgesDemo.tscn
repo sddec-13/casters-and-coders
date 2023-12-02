@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/DoorHitbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/objects/DungeonTilemap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/scriptable/ScriptPedestal.tscn" type="PackedScene" id=4]
 
 [node name="Room" type="Node"]
 
@@ -32,3 +33,7 @@ zoom = Vector2( 0.35, 0.44 )
 
 [node name="PlayerCol" parent="." instance=ExtResource( 1 )]
 position = Vector2( 136, 158 )
+
+[node name="Pedestal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 74, 107 )
+puzzle_name = "bridge_puzzle"

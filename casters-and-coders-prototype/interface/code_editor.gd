@@ -39,6 +39,8 @@ func open(puzzle_name: String):
 	self.show()
 
 func populate_side_panel(def: Dictionary):
+	for child in side_panel.get_children():
+		side_panel.remove_child(child)
 	for input_def in def["inputs"]:
 		var api_hint = api_hint_scene.instance()
 		api_hint.api_name_color = INPUT_COLOR

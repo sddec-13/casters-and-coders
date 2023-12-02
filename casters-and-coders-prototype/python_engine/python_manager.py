@@ -62,7 +62,7 @@ class python_engine(Node):
 			for arg in args:
 				self.log.push_message(str(arg), 0)
 		other_context = {
-			"print": print_overload 
+			"print": print_overload
 		}
 		
 		try:
