@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Water+.png-213da697b9d8e1b0ca4c63868522bb39.stex"
+path="res://.import/dust_trails.png-ea049fbb2437f371a9c070259d8999af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art_assets/Water+.png"
-dest_files=[ "res://.import/Water+.png-213da697b9d8e1b0ca4c63868522bb39.stex" ]
+source_file="res://art_assets/dust_trails.png"
+dest_files=[ "res://.import/dust_trails.png-ea049fbb2437f371a9c070259d8999af.stex" ]
 
 [params]
 
