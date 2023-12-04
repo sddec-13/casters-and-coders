@@ -1,4 +1,10 @@
 
+# Some scripts, like this one, are "read only", often shortened to just "readonly".
+# That means that you can read it, but you can't change it.
+# You can tell if a script is readonly by the indicator by the "close" button.
+# Of course, you could also tell by trying to change it - a readonly script can't be changed.
+
+
 # Any line starting with a hash like this is a comment.
 # Comments don't actually *do* anything. They're just for leaving notes
 

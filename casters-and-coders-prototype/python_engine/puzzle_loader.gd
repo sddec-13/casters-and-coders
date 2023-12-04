@@ -16,12 +16,15 @@ func populate_predefined_puzzle_scripts():
 		if not d.current_is_dir():
 			# Process each file (file_name is the name of the file)
 			var puzzle_name = file_name.rstrip(".py")
+			var def = load_definition(puzzle_name)
+			# if it's a readonly script, just overwrite always. Why not.
+			var overwrite = "readonly" in def and def["readonly"]
 			var f = File.new()
 			if f.open(predefined_puzzle_scripts_path + file_name, File.READ) != OK:
 				print("could not open " + predefined_puzzle_scripts_path + file_name)
 			var source = f.get_as_text()
-			print("saving: " + puzzle_name, source)
-			save_source(puzzle_name, source, false)
+#			print("saving: " + puzzle_name, source)
+			save_source(puzzle_name, source, overwrite)
 		file_name = d.get_next()
 	d.list_dir_end()
 
@@ -64,6 +67,7 @@ func save_source(name: String, source: String, overwrite = true):
 	var path = "user://puzzle_scripts/%s.py" % name
 	if not overwrite and f.file_exists(path):
 			f.open(path, File.READ)
+			# Only avoid overwriting a file if its contents aren't an empty string
 			if f.get_as_text() != "":
 				f.close()
 				return

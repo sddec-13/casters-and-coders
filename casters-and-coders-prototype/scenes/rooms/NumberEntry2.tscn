@@ -102,7 +102,7 @@ tile_data = PoolIntArray( 393221, -1073741824, 0, 393225, -1610612733, 0, 393226
 
 [node name="Bridge" parent="." instance=ExtResource( 8 )]
 position = Vector2( 346, 130 )
-puzzle_name = "number_entry_1"
+puzzle_name = "number_entry_2"
 
 [node name="DoorHitbox" parent="." instance=ExtResource( 2 )]
 position = Vector2( 15, 162 )
@@ -114,7 +114,7 @@ spawn_facing_right = false
 [node name="DoorHitbox2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 562, 160 )
 rotation = 1.5708
-door_to = "res://scenes/rooms/NumberEntry2.tscn"
+door_to = "res://scenes/rooms/NumberEntry3.tscn"
 spawn_pos = Vector2( 64, 164 )
 
 [node name="PlayerCol" parent="." instance=ExtResource( 1 )]
@@ -122,11 +122,11 @@ position = Vector2( 136, 158 )
 
 [node name="NumberEntry" parent="." instance=ExtResource( 4 )]
 position = Vector2( 186, 81 )
-puzzle_name = "number_entry_1"
+puzzle_name = "number_entry_2"
 
 [node name="Pedestal" parent="." instance=ExtResource( 7 )]
 position = Vector2( 89, 82 )
-puzzle_name = "number_entry_1"
+puzzle_name = "number_entry_2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 288, 159 )
