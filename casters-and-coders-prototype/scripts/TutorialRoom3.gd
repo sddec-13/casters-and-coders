@@ -1,4 +1,4 @@
-extends "res://scripts/Room.gd"
+extends "res://scripts/room.gd"
 
 export (String) var object_type = "item"
 export var object_data = {}

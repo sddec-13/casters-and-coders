@@ -24,4 +24,4 @@ current = true
 zoom = Vector2( 0.447, 0.44 )
 
 [node name="PlayerCol" parent="." instance=ExtResource( 3 )]
-position = Vector2( 136, 158 )
+position = Vector2( 323, 160 )

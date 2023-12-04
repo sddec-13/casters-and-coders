@@ -1,4 +1,4 @@
-extends "res://scripts/Room.gd"
+extends "res://scripts/room.gd"
 
 var lever
 
