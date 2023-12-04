@@ -16,7 +16,7 @@ func _ready():
 		Log.MSG_INFO:
 			modulate = Color.white
 		Log.MSG_ERR:
-			modulate = Color.firebrick
+			modulate = Color.red
 	
 	add_child(timer)
 	add_child(tween)

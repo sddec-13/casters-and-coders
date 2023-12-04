@@ -4,4 +4,4 @@
 
 [node name="Loader" type="Node"]
 script = ExtResource( 1 )
-default_scene = "res://scenes/rooms/BridgesDemo.tscn"
+default_scene = "res://scenes/rooms/NumberEntry1.tscn"

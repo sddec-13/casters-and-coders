@@ -1,13 +1,10 @@
 extends PanelContainer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 onready var text_editor: TextEdit = $VBoxContainer/HSplitContainer/TextEdit
 onready var close_button: Button = $VBoxContainer/HBoxContainer/CloseButton
 onready var side_panel: VBoxContainer = $VBoxContainer/HSplitContainer/PanelContainer/Methods/VBoxContainer
+onready var readonly_panel: PanelContainer = $VBoxContainer/HBoxContainer/ReadonlyPanel
 
 onready var api_hint_scene = preload("res://interface/code_editor_api_hint.tscn")
 
@@ -34,6 +31,8 @@ func open(puzzle_name: String):
 	current_puzzle_name = puzzle_name
 	text_editor.text = source
 	
+	
+	configure_readonly("readonly" in def and def["readonly"])
 	populate_side_panel(def)
 	configure_editor_colors(def)
 	self.show()
@@ -61,6 +60,10 @@ func configure_editor_colors(def: Dictionary):
 	for output_def in def["outputs"]:
 		var output_name = output_def["name"]
 		text_editor.add_keyword_color(output_name, OUTPUT_COLOR)
+
+func configure_readonly(readonly: bool):
+	readonly_panel.visible = readonly
+	text_editor.set_readonly(readonly)
 
 func close():
 	if current_puzzle_name == null or not self.visible:

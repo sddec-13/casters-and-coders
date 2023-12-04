@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://art_assets/bridge.png" type="Texture" id=1]
-[ext_resource path="res://scenes/scriptable/scriptable_bridge.gd" type="Script" id=2]
+[ext_resource path="res://scenes/scriptable/script_toggle_bridge.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -87,11 +87,11 @@ frames = SubResource( 3 )
 [node name="WaterHitbox" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WaterHitbox"]
-position = Vector2( -1, -230 )
+position = Vector2( 0, -230 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WaterHitbox"]
-position = Vector2( 0, 275 )
+position = Vector2( -1, 273 )
 shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
