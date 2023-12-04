@@ -11,4 +11,4 @@ func _ready():
 func _interacted():
 	PythonManager.clear()
 	MenuManager.open_code_editor(puzzle_name)
-	MenuManager.connect("menu_closed", self, "_editor_closed")
+

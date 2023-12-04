@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/DoorHitbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/objects/DungeonTilemap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/scriptable/ScriptPedestal.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/scriptable/ScriptDoor.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/scriptable/ScriptButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/scriptable/ScriptPedestal.tscn" type="PackedScene" id=4]
 
 [node name="Room" type="Node"]
 
@@ -18,14 +16,14 @@ position = Vector2( 383, 160 )
 [node name="DoorHitbox" parent="." instance=ExtResource( 2 )]
 position = Vector2( 15, 162 )
 rotation = 1.57079
-door_to = "res://scenes/rooms/EmptyRoomDemo.tscn"
+door_to = "res://scenes/rooms/RoomTemplate.tscn"
 spawn_pos = Vector2( 384, 164 )
 spawn_facing_right = false
 
 [node name="DoorHitbox2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 431, 160 )
 rotation = 1.5708
-door_to = "res://scenes/rooms/EmptyRoomDemo.tscn"
+door_to = "res://scenes/rooms/RoomTemplate.tscn"
 spawn_pos = Vector2( 64, 164 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -36,16 +34,6 @@ zoom = Vector2( 0.35, 0.44 )
 [node name="PlayerCol" parent="." instance=ExtResource( 1 )]
 position = Vector2( 136, 158 )
 
-[node name="Pedestal" parent="." instance=ExtResource( 5 )]
-position = Vector2( 96, 95 )
-puzzle_name = "test_puzzle"
-
-[node name="Door" parent="." instance=ExtResource( 6 )]
-position = Vector2( 282, 91 )
-puzzle_name = "test_puzzle"
-output_name = "set_door_open"
-
-[node name="Button" parent="." instance=ExtResource( 7 )]
-position = Vector2( 190, 94 )
-puzzle_name = "test_puzzle"
-input_name = "button_pressed"
+[node name="Pedestal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 74, 107 )
+puzzle_name = "bridge_puzzle"

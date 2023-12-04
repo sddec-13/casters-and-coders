@@ -26,9 +26,9 @@ door_to = "res://scenes/rooms/RoomTemplate.tscn"
 spawn_pos = Vector2( 64, 164 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 225, 160 )
+position = Vector2( 224, 160 )
 current = true
-zoom = Vector2( 0.557, 0.529 )
+zoom = Vector2( 0.35, 0.44 )
 
 [node name="PlayerCol" parent="." instance=ExtResource( 1 )]
 position = Vector2( 136, 158 )

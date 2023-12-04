@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/TutorialRoom3.gd" type="Script" id=1]
-[ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" type="Texture" id=2]
-[ext_resource path="res://art_assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/character and tileset/Dungeon_Tileset.png" type="Texture" id=3]
+[ext_resource path="res://art_assets/pixel_dungeon_assets/Dungeon_Tileset.png" type="Texture" id=3]
 [ext_resource path="res://scenes/objects/Fire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/door.gd" type="Script" id=6]
@@ -266,8 +265,7 @@ points = PoolVector2Array( 0, 0, 31.4308, 0, 31.4308, 15.5825, 0, 15.5825 )
 10/z_index = 0
 
 [sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 2 )
+atlas = ExtResource( 3 )
 region = Rect2( 219, 352, 73, 32 )
 
 [sub_resource type="SpriteFrames" id=13]
@@ -343,7 +341,6 @@ rotation = 1.5708
 scale = Vector2( 1.04599, 1.01981 )
 script = ExtResource( 6 )
 door_to = "Main"
-object_type = "door_locked"
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="DoorMain"]
 position = Vector2( 566.929, 526.903 )

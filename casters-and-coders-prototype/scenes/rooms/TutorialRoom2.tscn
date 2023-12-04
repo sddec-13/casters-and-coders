@@ -269,6 +269,7 @@ points = PoolVector2Array( 0, 0, 31.4308, 0, 31.4308, 15.5825, 0, 15.5825 )
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=18]
+resource_local_to_scene = true
 0/name = "Water+.png 0"
 0/texture = ExtResource( 4 )
 0/tex_offset = Vector2( 0, 0 )
