@@ -118,8 +118,8 @@ position = Vector2( 383, 160 )
 [node name="DoorHitbox" parent="." instance=ExtResource( 2 )]
 position = Vector2( 15, 162 )
 rotation = 1.57079
-door_to = "res://scenes/rooms/RoomTemplate.tscn"
-spawn_pos = Vector2( 384, 164 )
+door_to = "res://scenes/rooms/Room1.tscn"
+spawn_pos = Vector2( 520, 164 )
 spawn_facing_right = false
 
 [node name="DoorHitbox2" parent="." instance=ExtResource( 2 )]
