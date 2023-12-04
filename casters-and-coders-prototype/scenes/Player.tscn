@@ -1,0 +1,87 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://art_assets/wizard/Run-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://scripts/player.gd" type="Script" id=2]
+[ext_resource path="res://art_assets/wizard/Idle-Sheet.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 30, 32, 34 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 1 )
+region = Rect2( 80, 30, 32, 34 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 1 )
+region = Rect2( 144, 30, 32, 34 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 1 )
+region = Rect2( 208, 30, 32, 34 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 1 )
+region = Rect2( 272, 30, 32, 34 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 1 )
+region = Rect2( 336, 30, 32, 34 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 24 ), SubResource( 26 ), SubResource( 25 ), SubResource( 23 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 12.0
+height = 8.00007
+
+[sub_resource type="CapsuleShape2D" id=22]
+radius = 16.0
+height = 12.0
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 17
+collision_mask = 17
+collision/safe_margin = 0.8
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 7 )
+animation = "idle"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 8 )
+
+[node name="InteractableFinder" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableFinder"]
+shape = SubResource( 22 )
