@@ -3,12 +3,13 @@ from godot import *
 import godot
 from typing import List, Dict, Callable
 import json
-
+import traceback
+import sys
 
 class PuzzleExecution:
-	def __init__(self, name: str, source: str, outputs: Dict[str, Callable]):
+	def __init__(self, name: str, source: str, outputs: Dict[str, Callable], other_context = {}):
 		self.name = name
-		self.context = {**outputs}
+		self.context = {**outputs, **other_context}
 		self.code_obj = compile(source, name, "exec")
 
 	def start(self):
@@ -21,11 +22,13 @@ class python_engine(Node):
 
 	puzzle_loader = None
 	timer = None
+	log = None
 	
 	running_puzzles: Dict[str, PuzzleExecution] = {}
 
 	def _ready(self):
 		self.puzzle_loader = self.get_node("/root/PuzzleLoader")
+		self.log = self.get_node("/root/Log")
 		self.timer = self.get_node("Timer")
 		
 	def load_puzzle(self, name: str):
@@ -55,8 +58,18 @@ class python_engine(Node):
 				self.call("emit_signal", "output", name, output_name, godot.Array(list(args))) 
 			outputs[output_name] = output_func
 		
+		def print_overload(*args):
+			# TODO print()'s arguments are usually printed on one
+			# line with a separator, by default a space.
+			for arg in args:
+				self.log.push_message(str(arg), 0)
+		other_context = {
+			"print": print_overload 
+		}
+		
 		try:
-			ex = PuzzleExecution(name, source, outputs)
+			ex = PuzzleExecution(name, source, outputs, other_context)
+			print(ex.context)
 			ex.start()
 			self.running_puzzles[name] = ex
 		except Exception as e:
@@ -86,3 +99,11 @@ class python_engine(Node):
 		except Exception as e:
 			print("exception when calling into guest script:")
 			print(e)
+			
+			# This is how you can get a line number, but I'm not sure how to get it for the guest script.
+			# It gives the line where the input function is triggered just above.
+#			exc_type, exc_obj, exc_tb = sys.exc_info()
+#			line_number = exc_tb.tb_lineno
+			# Python can't see godot constants, so we have to use this int enum directly.
+			# 1 is for red error text
+			self.log.push_message(str(e), 1)
