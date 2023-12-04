@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/scriptable/number_entry/NumberEntryConsole.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/scriptable/number_entry/number_entry.gd" type="Script" id=2]
+
+[node name="NumberEntry" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="NumberEntryConsole" parent="." instance=ExtResource( 1 )]
+position = Vector2( -37, -1 )
+
+[node name="NumberEntryConsole2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1, -1 )
+console_number = 2
+
+[node name="NumberEntryConsole3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 35, -1 )
+console_number = 3

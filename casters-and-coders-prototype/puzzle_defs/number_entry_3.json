@@ -1,0 +1,35 @@
+{
+    "readonly": true,
+    "inputs": [
+        {
+            "name": "numbers_changed",
+            "description": "This hook is triggered when any of the number displays are changed",
+            "signature": {
+                "number_1": {
+                    "type": "number",
+                    "description": "The value of the first number"
+                },
+                "number_2": {
+                    "type": "number",
+                    "description": "The value of the second number"
+                },
+                "number_3": {
+                    "type": "number",
+                    "description": "The value of the third number"
+                }
+            }
+        }
+    ],
+    "outputs": [
+        {
+            "name": "set_bridge_lowered",
+            "description": "This function will set a bridge to be lowered or raised depending on its parameter",
+            "signature": {
+                "lowered": {
+                    "type": "bool",
+                    "description": "True if the bridge should be lowered. False if it should be raised"
+                }
+            }
+        }
+    ]
+}
