@@ -3,19 +3,21 @@ from godot import *
 import godot
 from typing import List, Dict, Callable
 import json
+import traceback
 import sys
 
 
 class PuzzleExecution:
-	def __init__(self, name: str, source: str, outputs: Dict[str, Callable]):
+	def __init__(self, name: str, source: str, outputs: Dict[str, Callable], inputs: Dict[str, Callable], other_context: Dict[str, Any] = dict()):
 		self.name = name
-		self.context = {**outputs}
+		self.context = {**outputs, **inputs, **other_context}
 		try:
 			self.code_obj = compile(source, name, "exec")
 		except SyntaxError as s:
 			# TODO a way to tell the user the script is broken
 			print("USER SCRIPT DID NOT COMPILE", file=sys.stderr)
 			print(s, file=sys.stderr)
+
 
 	def start(self):
 		exec(self.code_obj, self.context)
@@ -27,11 +29,13 @@ class python_engine(Node):
 
 	puzzle_loader = None
 	timer = None
+	log = None
 	
 	running_puzzles: Dict[str, PuzzleExecution] = {}
 
 	def _ready(self):
 		self.puzzle_loader = self.get_node("/root/PuzzleLoader")
+		self.log = self.get_node("/root/Log")
 		self.timer = self.get_node("Timer")
 		
 	def load_puzzle(self, name: str):
@@ -48,7 +52,9 @@ class python_engine(Node):
 		if definition is None or source is None:
 			return
 		
-		context = {"__state__":dict()}
+		outputs = dict()
+		inputs = dict()
+		other_context = {"__state__":dict()}
 		for o in definition.get("outputs", default=[]):
 			output_name = str(o["name"])
 			def output_func(*args):
@@ -59,20 +65,31 @@ class python_engine(Node):
 				# I've verified that primitives pass through ok. We might need to explicitly
 				# convert more complex objects.
 				self.call("emit_signal", "output", name, output_name, godot.Array(list(args))) 
-			context[output_name] = output_func
+			outputs[output_name] = output_func
 			
 		for i in definition.get("input_getters", default=[]):
 			input_name = str(i["name"])
 			def input_getter(*args):
-				if input_name not in context["__state__"]:
+				if input_name not in self.running_puzzles[name].context["__state__"]:
 					return None
-				return context["__state__"][input_name]
-			context[input_name] = input_getter
+				return self.running_puzzles[name].context["__state__"][input_name]
+			inputs[input_name] = input_getter
+		
+		def print_overload(*args):
+			# TODO print()'s arguments are usually printed on one
+			# line with a separator, by default a space.
+			for arg in args:
+				self.log.push_message(str(arg), 0)
+		other_context.extend({
+			"print": print_overload
+		})
 		
 		try:
-			ex = PuzzleExecution(name, source, context)
-			ex.start()
+			ex = PuzzleExecution(name, source, outputs, inputs, other_context)
+			print(ex.context)
 			self.running_puzzles[name] = ex
+			ex.start()
+
 		except Exception as e:
 			print("Failed to start script: ", e)
 	
@@ -126,3 +143,11 @@ class python_engine(Node):
 		except Exception as e:
 			print("exception when calling into guest script:")
 			print(e)
+			
+			# This is how you can get a line number, but I'm not sure how to get it for the guest script.
+			# It gives the line where the input function is triggered just above.
+#			exc_type, exc_obj, exc_tb = sys.exc_info()
+#			line_number = exc_tb.tb_lineno
+			# Python can't see godot constants, so we have to use this int enum directly.
+			# 1 is for red error text
+			self.log.push_message(str(e), 1)

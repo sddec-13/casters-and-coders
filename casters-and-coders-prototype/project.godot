@@ -36,10 +36,13 @@ Global="*res://scenes/Global.tscn"
 PythonManager="*res://python_engine/python_manager.tscn"
 PuzzleLoader="*res://python_engine/puzzle_loader.gd"
 MenuManager="*res://interface/MenuManager.tscn"
+SceneSwitcher="*res://scenes/SceneSwitcher.tscn"
+Log="*res://interface/Log.tscn"
 
 [display]
 
-window/size/resizable=false
+window/size/width=1280
+window/size/height=720
 window/stretch/mode="2d"
 
 [gdnative]
@@ -168,4 +171,6 @@ path="res://;res://lib;res://python/src"
 
 [rendering]
 
+2d/snapping/use_gpu_pixel_snap=true
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
