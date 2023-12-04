@@ -1,7 +1,7 @@
 from godot import exposed
 from godot import *
 import godot
-from typing import List, Dict, Callable
+from typing import List, Dict, Callable, Any
 import json
 import traceback
 import sys
@@ -20,7 +20,10 @@ class PuzzleExecution:
 
 
 	def start(self):
-		exec(self.code_obj, self.context)
+		try:
+			exec(self.code_obj, self.context)
+		except Exception as e:
+			print(f"User exception caught: {e}")
 
 @exposed
 class python_engine(Node):
@@ -55,7 +58,7 @@ class python_engine(Node):
 		outputs = dict()
 		inputs = dict()
 		other_context = {"__state__":dict()}
-		for o in definition.get("outputs", default=[]):
+		for o in definition.get("outputs", []):
 			output_name = str(o["name"])
 			def output_func(*args):
 				# We use self.call, because emit_signal isn't bound right
@@ -67,7 +70,7 @@ class python_engine(Node):
 				self.call("emit_signal", "output", name, output_name, godot.Array(list(args))) 
 			outputs[output_name] = output_func
 			
-		for i in definition.get("input_getters", default=[]):
+		for i in definition.get("input_getters", []):
 			input_name = str(i["name"])
 			def input_getter(*args):
 				if input_name not in self.running_puzzles[name].context["__state__"]:
@@ -80,7 +83,7 @@ class python_engine(Node):
 			# line with a separator, by default a space.
 			for arg in args:
 				self.log.push_message(str(arg), 0)
-		other_context.extend({
+		other_context.update({
 			"print": print_overload
 		})
 		
@@ -130,7 +133,7 @@ class python_engine(Node):
 	
 	def run_user_callback(self, puzzle_name: str, callback_name: str, args: list):
 		name = str(puzzle_name)
-		callback_name = str(calback_name)
+		callback_name = str(callback_name)
 		if name not in self.running_puzzles:
 			print(f"Tried to give input to puzzle that is not running: {puzzle_name}")
 			return
