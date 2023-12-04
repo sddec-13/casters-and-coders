@@ -59,6 +59,8 @@ class python_engine(Node):
 			outputs[output_name] = output_func
 		
 		def print_overload(*args):
+			# TODO print()'s arguments are usually printed on one
+			# line with a separator, by default a space.
 			for arg in args:
 				self.log.push_message(str(arg), 0)
 		other_context = {
