@@ -90,7 +90,7 @@ rect_min_size = Vector2( 200, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Methods" type="ScrollContainer" parent="VBoxContainer/HSplitContainer/PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HSplitContainer/PanelContainer"]
 margin_left = 12.0
 margin_top = 12.0
 margin_right = 398.0
@@ -99,9 +99,54 @@ rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/PanelContainer/Methods"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer"]
+margin_right = 386.0
+margin_bottom = 64.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
+
+[node name="HooksLabel" type="Label" parent="VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+modulate = Color( 0.286275, 0.94902, 0.282353, 1 )
+margin_right = 386.0
+margin_bottom = 17.0
+text = "---- Hooks ----"
+align = 1
+
+[node name="HooksContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+margin_top = 27.0
+margin_right = 386.0
+margin_bottom = 27.0
+
+[node name="Separator" type="MarginContainer" parent="VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+visible = false
+margin_top = 37.0
+margin_right = 386.0
+margin_bottom = 49.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer/Separator"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 382.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 0, 4 )
+color = Color( 0.333333, 0.321569, 0.407843, 1 )
+
+[node name="OutputsLabel" type="Label" parent="VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+modulate = Color( 0.788235, 0.415686, 1, 1 )
+margin_top = 37.0
+margin_right = 386.0
+margin_bottom = 54.0
+text = "---- Outputs ----"
+align = 1
+
+[node name="OutputsContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 386.0
+margin_bottom = 64.0
 
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer/HSplitContainer"]
 margin_left = 426.0

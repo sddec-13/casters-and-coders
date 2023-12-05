@@ -2,6 +2,7 @@ extends Control
 
 
 export(Color) var api_name_color
+export(Color) var arg_name_color
 export(Dictionary) var api_def
 
 var indent_scene = preload("res://interface/code_editor_indent_block.tscn")
@@ -19,19 +20,23 @@ func _ready():
 	api_label.modulate = api_name_color
 	add_child(api_label)
 	var api_indent_contents = VBoxContainer.new()
+	
+	if description:
+		api_indent_contents.add_child(label_with_text(description))
+		
 	for arg in signature:
 		var arg_def = signature[arg]
 		var arg_type = ""
 		if "type" in arg_def:
 			arg_type = arg_def["type"]
 		var arg_label = label_with_text(arg + ": " + arg_type)
+		arg_label.modulate = arg_name_color
 		api_indent_contents.add_child(arg_label)
 
 		if "description" in arg_def:
 			var arg_description_text = arg_def["description"]
 			api_indent_contents.add_child(with_indent(label_with_text(arg_description_text)))
-	if description:
-		api_indent_contents.add_child(label_with_text(description))
+	
 	add_child(with_indent(api_indent_contents))
 
 func label_with_text(text: String):
