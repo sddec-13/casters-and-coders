@@ -12,7 +12,8 @@ def numbers_changed(number_1, number_2, number_3):
 
 	# Here's a different print statement.
     # Notice that numbers are added like numbers, while strings of text are appended.
-	print("The sum of all three numbers is: " + (number_1 + number_2 + number_3))
+    # str() tries to turn something into a string.
+	print("The sum of all three numbers is: " + str(number_1 + number_2 + number_3))
 
     # This is a little different! Can you figure out a solution?
 	if number_1 + number_2 + number_3 == 21:

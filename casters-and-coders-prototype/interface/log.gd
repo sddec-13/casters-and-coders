@@ -11,24 +11,24 @@ onready var anchor = $LogAnchor
 onready var printing_too_fast_warning = $PrintingTooFastWarning
 
 var messages = []
-var message_node = preload("res://interface/log_message.gd")
+var message_node = preload("res://interface/LogMessage.tscn")
 
 func push_message(text: String, type: int = MSG_INFO):
 	if messages.size() > max_concurrent_messages:
 		printing_too_fast_warning.visible = true
 		return
 	
-	var message = message_node.new()
+	var message = message_node.instance()
 	message.text = text
 	message.type = type
 	anchor.add_child(message)
-	var message_height = message.rect_size.y
+	var message_height = message.label.rect_size.y
 	var vertical_offset = Vector2(0, -message_height)
 	messages.push_front(message)
-	
 	for i in messages.size():
-		var m = messages[i] as Label
+		var m = messages[i] as Control
 		var m_pos = m.rect_position
+		print(m_pos)
 		m.set_position(m_pos + vertical_offset)
 	
 	message.connect("vanished", self, "_on_message_vanished")
