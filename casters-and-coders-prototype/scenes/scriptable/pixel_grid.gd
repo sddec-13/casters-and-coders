@@ -43,4 +43,10 @@ func _output(puzzle_name, output_name, args):
 		var row = args[0]
 		var col = args[1]
 		var set = args[2]
+		if col < 0 or col >= cols:
+			Log.push_message("Invalid column: " + col, 1)
+			return
+		if row < 0 or row >= rows: 
+			Log.push_message("Invlid row: " + row, 1)
+			return
 		tilemap.set_cell(col, row, 1 if set else 0)
