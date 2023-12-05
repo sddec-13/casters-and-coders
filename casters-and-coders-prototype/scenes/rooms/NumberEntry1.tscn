@@ -107,7 +107,7 @@ puzzle_name = "number_entry_1"
 [node name="DoorHitbox" parent="." instance=ExtResource( 2 )]
 position = Vector2( 15, 162 )
 rotation = 1.57079
-door_to = "res://scenes/rooms/NumberEntry1.tscn"
+door_to = "res://scenes/rooms/PixelGrid1.tscn"
 spawn_pos = Vector2( 384, 164 )
 spawn_facing_right = false
 
@@ -132,13 +132,3 @@ puzzle_name = "number_entry_1"
 position = Vector2( 288, 159 )
 current = true
 zoom = Vector2( 0.447, 0.44 )
-
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-color = Color( 0, 0, 0, 1 )
-
-[node name="Label" type="Label" parent="ColorRect"]
-margin_right = 40.0
-margin_bottom = 17.0
-text = "aoeuaoeuaoeuaoeuaoeu"

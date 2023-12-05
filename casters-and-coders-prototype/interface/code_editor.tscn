@@ -101,7 +101,7 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer"]
 margin_right = 386.0
-margin_bottom = 64.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
@@ -147,6 +147,19 @@ align = 1
 margin_top = 64.0
 margin_right = 386.0
 margin_bottom = 64.0
+
+[node name="GettersLabel" type="Label" parent="VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+modulate = Color( 0.415686, 1, 0.796078, 1 )
+margin_top = 74.0
+margin_right = 386.0
+margin_bottom = 91.0
+text = "---- Getters ----"
+align = 1
+
+[node name="GettersContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+margin_top = 101.0
+margin_right = 386.0
+margin_bottom = 101.0
 
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer/HSplitContainer"]
 margin_left = 426.0

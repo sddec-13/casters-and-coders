@@ -5,6 +5,8 @@ onready var text_editor: TextEdit = $VBoxContainer/HSplitContainer/TextEdit
 onready var close_button: Button = $VBoxContainer/HBoxContainer/CloseButton
 onready var hooks_panel: VBoxContainer = $VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer/HooksContainer
 onready var outputs_panel: VBoxContainer = $VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer/OutputsContainer
+onready var getters_label: Label = $VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer/GettersLabel
+onready var getters_panel: VBoxContainer = $VBoxContainer/HSplitContainer/PanelContainer/ScrollContainer/VBoxContainer/GettersContainer
 onready var readonly_panel: PanelContainer = $VBoxContainer/HBoxContainer/ReadonlyPanel
 
 onready var api_hint_scene = preload("res://interface/code_editor_api_hint.tscn")
@@ -13,6 +15,7 @@ var current_puzzle_name = null
 
 const HOOK_COLOR = Color(.28, .94, .28)
 const OUTPUT_COLOR = Color(.78, .41, 1.0)
+const GETTER_COLOR = Color(.41, 1.0, .79)
 const KEYWORD_COLOR = Color(1.0, .4, .41)
 const COMMENT_COLOR = Color(0.7, 0.7, 0.7, 0.7)
 const STRING_COLOR = Color(1.0, .93, .41)
@@ -69,6 +72,8 @@ func populate_side_panel(def: Dictionary):
 		hooks_panel.remove_child(child)
 	for child in outputs_panel.get_children():
 		outputs_panel.remove_child(child)
+	for child in getters_panel.get_children():
+		getters_panel.remove_child(child)
 	
 	for hook_def in def["hooks"]:
 		var api_hint = api_hint_scene.instance()
@@ -83,6 +88,17 @@ func populate_side_panel(def: Dictionary):
 		api_hint.arg_name_color = HINT_ARG_NAME_COLOR
 		api_hint.api_def = output_def
 		outputs_panel.add_child(api_hint)
+		
+	if "input_getters" in def:
+		getters_label.visible = true
+		for getter_def in def["input_getters"]:
+			var api_hint = api_hint_scene.instance()
+			api_hint.api_name_color = GETTER_COLOR
+			api_hint.arg_name_color = HINT_ARG_NAME_COLOR
+			api_hint.api_def = getter_def
+			getters_panel.add_child(api_hint)
+	else:
+		getters_label.visible = false
 
 func configure_editor_colors(def: Dictionary):
 	text_editor = text_editor as TextEdit
@@ -97,6 +113,10 @@ func configure_editor_colors(def: Dictionary):
 	for output_def in def["outputs"]:
 		var output_name = output_def["name"]
 		text_editor.add_keyword_color(output_name, OUTPUT_COLOR)
+	if "input_getters" in def:
+		for getter_def in def["input_getters"]:
+			var getter_name = getter_def["name"]
+			text_editor.add_keyword_color(getter_name, GETTER_COLOR)
 
 func configure_readonly(readonly: bool):
 	readonly_panel.visible = readonly

@@ -29,6 +29,7 @@ class PuzzleExecution:
 class python_engine(Node):
 	
 	output = signal()
+	puzzle_started = signal()
 
 	puzzle_loader = None
 	timer = None
@@ -92,6 +93,7 @@ class python_engine(Node):
 			print(ex.context)
 			self.running_puzzles[name] = ex
 			ex.start()
+			self.call("emit_signal", "puzzle_started", name)
 
 		except Exception as e:
 			print("Failed to start script: ", e)
@@ -105,7 +107,7 @@ class python_engine(Node):
 	def clear(self):
 		self.running_puzzles.clear()
 	
-	def update_state(self, puzzle_name: str, key: str, val: Any):
+	def update_state(self, puzzle_name: str, key: str, value: Any):
 		name = str(puzzle_name)
 		key = str(key)
 		if name not in self.running_puzzles:

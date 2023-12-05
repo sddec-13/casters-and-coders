@@ -1,0 +1,42 @@
+{
+    "readonly": false,
+    "hooks": [
+        {
+            "name": "button_pressed",
+            "description": "This hook is triggered when the button is pressed.",
+            "signature": {}
+        }
+    ],
+    "input_getters": [
+        {
+            "name": "get_rows",
+            "description": "Get the number of rows in the pixel grid",
+            "signature": {}
+        },
+        {
+            "name": "get_cols",
+            "description": "Get the number of columns in the pixel grid",
+            "signature": {}
+        }
+    ],
+    "outputs": [
+        {
+            "name": "set_pixel",
+            "description": "This function will set a pixel to be turned on or off.",
+            "signature": {
+                "row": {
+                    "type": "bool",
+                    "description": "The row of the pixel to set. Rows start at 0 and increase from top to bottom."
+                },
+                "col": {
+                    "type": "number",
+                    "description": "The column of the pixel to set. Columns start at 0 and increase from left to right."
+                },
+                "enabled": {
+                    "type": "bool",
+                    "description": "Whether the pixel should be turned on or off"
+                }
+            }
+        }
+    ]
+}

@@ -28,7 +28,6 @@ func push_message(text: String, type: int = MSG_INFO):
 	for i in messages.size():
 		var m = messages[i] as Control
 		var m_pos = m.rect_position
-		print(m_pos)
 		m.set_position(m_pos + vertical_offset)
 	
 	message.connect("vanished", self, "_on_message_vanished")

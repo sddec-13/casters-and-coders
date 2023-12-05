@@ -9,7 +9,7 @@ var indent_scene = preload("res://interface/code_editor_indent_block.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("generating hint for api def: ", api_def)
+#	print("generating hint for api def: ", api_def)
 	var api_name = api_def["name"]
 	var description = null
 	if "description" in api_def:
