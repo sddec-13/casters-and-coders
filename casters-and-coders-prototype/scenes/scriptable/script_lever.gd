@@ -17,7 +17,7 @@ func _ready():
 func _interacted():
 	pulled_right = not pulled_right
 	a_sprite.frame = 0 if pulled_right else 1
-	PythonManager.run_user_callback(puzzle_name, "lever_pulled", [lever_number, pulled_right])
+	PythonManager.run_hook(puzzle_name, "lever_pulled", [lever_number, pulled_right])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

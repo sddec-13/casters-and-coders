@@ -1,6 +1,6 @@
 {
     "readonly": true,
-    "inputs": [
+    "hooks": [
         {
             "name": "numbers_changed",
             "description": "This hook is triggered when any of the number displays are changed",

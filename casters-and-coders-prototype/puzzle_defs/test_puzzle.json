@@ -1,5 +1,5 @@
 {
-    "inputs": [
+    "hooks": [
         {
             "name": "button_pressed",
             "description": "This is a hook that is triggered whenever a button is pressed. Use it wisely.",

@@ -1,5 +1,5 @@
 {
-    "inputs": [
+    "hooks": [
         {
             "name": "lever_pulled",
             "description": "This hook is triggered when a lever is pulled.",

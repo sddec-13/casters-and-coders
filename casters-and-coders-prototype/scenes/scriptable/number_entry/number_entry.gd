@@ -14,4 +14,4 @@ func _ready():
 
 
 func _number_changed(n):
-	PythonManager.input(puzzle_name, "numbers_changed", [console_1.number, console_2.number, console_3.number])
+	PythonManager.run_hook(puzzle_name, "numbers_changed", [console_1.number, console_2.number, console_3.number])

@@ -10,7 +10,7 @@ onready var api_hint_scene = preload("res://interface/code_editor_api_hint.tscn"
 
 var current_puzzle_name = null
 
-const INPUT_COLOR = Color.chartreuse
+const HOOK_COLOR = Color.chartreuse
 const OUTPUT_COLOR = Color.magenta
 
 # Called when the node enters the scene tree for the first time.
@@ -40,10 +40,10 @@ func open(puzzle_name: String):
 func populate_side_panel(def: Dictionary):
 	for child in side_panel.get_children():
 		side_panel.remove_child(child)
-	for input_def in def["inputs"]:
+	for hook_def in def["hooks"]:
 		var api_hint = api_hint_scene.instance()
-		api_hint.api_name_color = INPUT_COLOR
-		api_hint.api_def = input_def
+		api_hint.api_name_color = HOOK_COLOR
+		api_hint.api_def = hook_def
 		side_panel.add_child(api_hint)
 	for output_def in def["outputs"]:
 		var api_hint = api_hint_scene.instance()
@@ -54,9 +54,9 @@ func populate_side_panel(def: Dictionary):
 func configure_editor_colors(def: Dictionary):
 	text_editor = text_editor as TextEdit
 	text_editor.clear_colors()
-	for input_def in def["inputs"]:
-		var input_name = input_def["name"]
-		text_editor.add_keyword_color(input_name, INPUT_COLOR)
+	for hook_def in def["hooks"]:
+		var hook_name = hook_def["name"]
+		text_editor.add_keyword_color(hook_name, HOOK_COLOR)
 	for output_def in def["outputs"]:
 		var output_name = output_def["name"]
 		text_editor.add_keyword_color(output_name, OUTPUT_COLOR)

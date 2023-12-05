@@ -131,19 +131,19 @@ class python_engine(Node):
 			print("exception when calling into guest script:")
 			print(e)
 	
-	def run_user_callback(self, puzzle_name: str, callback_name: str, args: list):
+	def run_hook(self, puzzle_name: str, hook_name: str, args: list):
 		name = str(puzzle_name)
-		callback_name = str(callback_name)
+		hook_name = str(hook_name)
 		if name not in self.running_puzzles:
 			print(f"Tried to give input to puzzle that is not running: {puzzle_name}")
 			return
 		execution = self.running_puzzles[name]
-		if callback_name not in execution.context:
-			print("Could not find user callback")
+		if hook_name not in execution.context:
+			print("Could not find user hook")
 			self.log.push_message(f"Tried to call hook, but couldn't find it: {name}()", 1)
 			return
 		try:
-			execution.context[callback_name](*args)
+			execution.context[hook_name](*args)
 		except Exception as e:
 			print("exception when calling into guest script:")
 			print(e)
