@@ -140,6 +140,7 @@ class python_engine(Node):
 		execution = self.running_puzzles[name]
 		if callback_name not in execution.context:
 			print("Could not find user callback")
+			self.log.push_message(f"Tried to call hook, but couldn't find it: {name}()", 1)
 			return
 		try:
 			execution.context[callback_name](*args)
