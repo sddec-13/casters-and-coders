@@ -1,19 +1,29 @@
 from godot import exposed
 from godot import *
 import godot
-from typing import List, Dict, Callable
+from typing import List, Dict, Callable, Any
 import json
 import traceback
 import sys
 
+
 class PuzzleExecution:
-	def __init__(self, name: str, source: str, outputs: Dict[str, Callable], other_context = {}):
+	def __init__(self, name: str, source: str, outputs: Dict[str, Callable], inputs: Dict[str, Callable], other_context: Dict[str, Any] = dict()):
 		self.name = name
-		self.context = {**outputs, **other_context}
-		self.code_obj = compile(source, name, "exec")
+		self.context = {**outputs, **inputs, **other_context}
+		try:
+			self.code_obj = compile(source, name, "exec")
+		except SyntaxError as s:
+			# TODO a way to tell the user the script is broken
+			print("USER SCRIPT DID NOT COMPILE", file=sys.stderr)
+			print(s, file=sys.stderr)
+
 
 	def start(self):
-		exec(self.code_obj, self.context)
+		try:
+			exec(self.code_obj, self.context)
+		except Exception as e:
+			print(f"User exception caught: {e}")
 
 @exposed
 class python_engine(Node):
@@ -45,8 +55,10 @@ class python_engine(Node):
 		if definition is None or source is None:
 			return
 		
-		outputs = {}
-		for o in definition["outputs"]:
+		outputs = dict()
+		inputs = dict()
+		other_context = {"__state__":dict()}
+		for o in definition.get("outputs", []):
 			output_name = str(o["name"])
 			def output_func(*args):
 				# We use self.call, because emit_signal isn't bound right
@@ -57,45 +69,81 @@ class python_engine(Node):
 				# convert more complex objects.
 				self.call("emit_signal", "output", name, output_name, godot.Array(list(args))) 
 			outputs[output_name] = output_func
+			
+		for i in definition.get("input_getters", []):
+			input_name = str(i["name"])
+			def input_getter(*args):
+				if input_name not in self.running_puzzles[name].context["__state__"]:
+					return None
+				return self.running_puzzles[name].context["__state__"][input_name]
+			inputs[input_name] = input_getter
 		
 		def print_overload(*args):
 			# TODO print()'s arguments are usually printed on one
 			# line with a separator, by default a space.
 			for arg in args:
 				self.log.push_message(str(arg), 0)
-		other_context = {
+		other_context.update({
 			"print": print_overload
-		}
+		})
 		
 		try:
-			ex = PuzzleExecution(name, source, outputs, other_context)
+			ex = PuzzleExecution(name, source, outputs, inputs, other_context)
 			print(ex.context)
-			ex.start()
 			self.running_puzzles[name] = ex
+			ex.start()
+
 		except Exception as e:
 			print("Failed to start script: ", e)
 	
 	def unload_puzzle(self, name: str):
 		if name not in self.running_puzzles:
 			return
-		# This removes the key from the dict
-		self.running_puzzles.pop(name, None)
-		# This method may seem simplistic, but if we ensure that running_puzzles
-		# holds the only reference to this puzzle's execution context, the GC
-		# will eat it as soon as the reference is dropped.
+		# This pops and deletes both the key (name) and the value (the puzzle)
+		del self.running_puzzles[name]
 	
 	def clear(self):
 		self.running_puzzles.clear()
 	
-	def input(self, puzzle_name: str, input_name: str, args: list):
+	def update_state(self, puzzle_name: str, key: str, val: Any):
 		name = str(puzzle_name)
-		input_name = str(input_name)
+		key = str(key)
+		if name not in self.running_puzzles:
+			print(f"Tried to set key/val in state to puzzle that is not running: {puzzle_name}")
+			return
+		execution = self.running_puzzles[name]
+		try:
+			execution.context["__state__"][key] = value
+		except Exception as e:
+			print("exception when calling into guest script:")
+			print(e)
+	
+	def set_var(self, puzzle_name: str, var_name: str, value: Any):
+		name = str(puzzle_name)
+		var_name_name = str(var_name)
+		if name not in self.running_puzzles:
+			print(f"Tried to give input var to puzzle that is not running: {puzzle_name}")
+			return
+		execution = self.running_puzzles[name]
+		try:
+			execution.context[var_name] = value
+		except Exception as e:
+			print("exception when calling into guest script:")
+			print(e)
+	
+	def run_user_callback(self, puzzle_name: str, callback_name: str, args: list):
+		name = str(puzzle_name)
+		callback_name = str(callback_name)
 		if name not in self.running_puzzles:
 			print(f"Tried to give input to puzzle that is not running: {puzzle_name}")
 			return
 		execution = self.running_puzzles[name]
+		if callback_name not in execution.context:
+			print("Could not find user callback")
+			self.log.push_message(f"Tried to call hook, but couldn't find it: {name}()", 1)
+			return
 		try:
-			execution.context[input_name](*args)
+			execution.context[callback_name](*args)
 		except Exception as e:
 			print("exception when calling into guest script:")
 			print(e)
